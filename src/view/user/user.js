@@ -4,19 +4,20 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import routers from '@/router/user';
 import App from './App';
+import './../../sass/base/common.scss'
 
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
 
-const router=new VueRouter({
+const router = new VueRouter({
     mode: 'history',
-    routes:routers
+    routes: routers
 });
 
 /* eslint-disable no-new */
 new Vue({
-    el:'#app',
+    el: '#app',
     router,
-    render: h=>h(App)
+    render: h => h(App)
 });

@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <ul>
+    <!--<ul>
       <li><a href="/index.html">返回首页</a></li>
       <li v-for="menu in menus"><router-link :to="menu.link">{{menu.name}}</router-link></li>
-    </ul>
+    </ul>-->
     <!-- 路由出口 -->
     <!-- 路由匹配到的组件将渲染在这里 -->
     <router-view></router-view>
