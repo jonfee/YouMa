@@ -16,7 +16,7 @@
                 </div>
                 <input type="button" value="登录" class="button" @click="login">
                 <p class="tip">还没有账号？赶快去
-                    <router-link :to="{path:'/register'}">&nbsp;注册&nbsp;</router-link>吧</p>
+                    <router-link :to="{name:'register'}">&nbsp;注册&nbsp;</router-link>吧</p>
             </form>
         </div>
     </div>
@@ -38,12 +38,6 @@ export default {
     methods: {
         login() {
             alert('111');
-            // this.$vux.toast.show({
-            //     type: 'warn',
-            //     text: "请输入用户名",
-            //     time: 2000,
-            //     postition: 'top'
-            // })
         }
     }
 }
