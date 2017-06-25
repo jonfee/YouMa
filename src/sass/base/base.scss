@@ -1,6 +1,7 @@
 @charset "UTF-8";
 //基准色
-$base-font-color: #000;
+$base-font-color: #2c3e50;
+;
 // 模块背景色
 $body-bgcolor:#f2f2f2;
 // 边框颜色
@@ -25,7 +26,10 @@ html {
 }
 
 body {
-    font-family: PingFangSC-Regular !important;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-top: 30px;
     text-align: center;
     background-color: $body-bgcolor; // 不加颜色的话，页面加载一瞬间会有白边
     color: $base-font-color;

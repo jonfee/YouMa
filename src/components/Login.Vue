@@ -1,35 +1,5 @@
 <template>
-    
-</template>
-
-<script>
-
-//import './../sass/views/login.scss'
-//import { storage as Storage } from './../utils/storage'
-export default {
-    data() {
-        return {
-            user: {
-                username: '',
-                password: ''
-            }
-        }
-    },
-    methods: {
-        login() {
-            alert('111');
-            this.$vux.toast.show({
-                type:'warn',
-                text: "请输入用户名",
-                time: 2000,
-                postition:'top'
-            })
-        }
-    }
-}
-
-/*
-<div class="login">
+    <div class="login">
         <div class="logo">
             <img src="./../assets/imgs/logo.png">
         </div>
@@ -50,6 +20,33 @@ export default {
             </form>
         </div>
     </div>
-    */
+</template>
+
+<script>
+
+import './../sass/views/login.scss'
+import { storage as Storage } from './../utils/storage'
+export default {
+    data() {
+        return {
+            user: {
+                username: '',
+                password: ''
+            }
+        }
+    },
+    methods: {
+        login() {
+            alert('111');
+            // this.$vux.toast.show({
+            //     type: 'warn',
+            //     text: "请输入用户名",
+            //     time: 2000,
+            //     postition: 'top'
+            // })
+        }
+    }
+}
+
 </script>
 
