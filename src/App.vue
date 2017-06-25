@@ -12,8 +12,8 @@ export default {
   data:function(){
     return {
       menus:[
-        {name:'首页',link:'/index.html'},
-        {name:'用户',link:'/user.html'},
+        {name:'首页',link:'/index'},
+        {name:'用户',link:'/user'},
       ]
     }
   }
