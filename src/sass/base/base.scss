@@ -57,7 +57,9 @@ a {
     }
 }
 
-input {
+input[type="text"],
+input[type="password"],
+input[type="button"] {
     border-radius: 5px;
     border: solid 1px #ccc;
     outline: none;
