@@ -29,7 +29,6 @@ body {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    margin-top: 30px;
     text-align: center;
     background-color: $body-bgcolor; // 不加颜色的话，页面加载一瞬间会有白边
     color: $base-font-color;
@@ -38,6 +37,7 @@ body {
         width: 100%;
     }
     min-width: 320px;
+    max-width: 720px;
     margin: 0 auto;
     height: 100%;
     -webkit-overflow-scrolling: touch;
