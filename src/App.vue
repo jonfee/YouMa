@@ -5,16 +5,9 @@
 </template>
 
 <script>
+
 export default {
-  name: 'app',
-  data:function(){
-    return {
-      menus:[
-        {name:'首页',link:'/index'},
-        {name:'用户',link:'/user'},
-      ]
-    }
-  }
+  name: 'app'
 }
 </script>
 
