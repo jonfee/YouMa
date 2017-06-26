@@ -15,11 +15,11 @@
                 </li>
             </ul>
         </div>
-        <div class="searcher-box">
-            
-        </div>
         <div class="products-box">
-            <ul>
+            <div class="separator">
+                <p>今日推荐</p>
+            </div>
+            <ul class="product-list">
                 <li class="product-item">
                     <img class="product-img"></img>
                     <div class="product-info">
