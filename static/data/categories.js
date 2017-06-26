@@ -1,7 +1,7 @@
 /*
 *   初始化商品分类信息
 */
-var categories=[
+const categories=[
     {
         "Name":"类目A",
         "Id":"1",
@@ -27,3 +27,5 @@ var categories=[
         "ProductCount":20
     }
 ]
+
+export default categories;

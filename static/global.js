@@ -1,9 +1,9 @@
 //引入商品分类数据
-import Categories from '/static/categories';
+import Categories from './data/categories';
 //引入商品数据
-import Products from '/static/products';
+import Products from './data/products';
 //引入广告数据
-import AD from '/static/ad';
+import AD from './data/ad';
 
 /*
 *   定义全局配置信息
@@ -16,7 +16,11 @@ const global = {
     Company : "深圳市优码生活科技有限公司",                       //公司名称
     Address : "中国·深圳·福田区深南大道2001号嘉麟豪庭C座1202号",   //公司地址
     CurrentYear : new Date().getFullYear,                       //当前年份
-    Categories : categories,                                    //商品分类集合
-    Products : products,                                        //商品集合
-    AD : ad                                                     //广告集合
+    Categories : Categories,                                    //商品分类集合
+    Products : Products,                                        //商品集合
+    AD : AD                                                     //广告集合
 };
+
+export{
+    global
+}

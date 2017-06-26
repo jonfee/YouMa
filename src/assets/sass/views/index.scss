@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+.container{
+    width: 100%;
+    height: 100%;
+
+    /*banner图片广告盒子样式*/
+    .top-banner-box{
+        height:220px;
+        max-height:220px;
+        margin:0 auto;
+        padding:0px;
+        box-sizing: border-box;
+
+        img{
+            max-width: 100%;
+            height:100%;
+        }
+    }
+
+    /*商品分类导航盒子样式*/
+    .nav-menu-box{
+        width: 100%;
+        height: 140px;
+        margin: 0px;
+        padding:20px 0px;
+        box-sizing: border-box;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        ul{
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-justify-content: space-around;
+            justify-content: space-around;
+
+            li{
+                list-style: none;
+                margin: 0px;
+                padding: 0px;
+                width: 80px;
+                max-width: 80px;
+                height: 80px;
+                max-height: 80px;
+                float: left;
+
+                div.menu-icon{
+                    width: 100%;
+                    height: 80px;
+                    max-width: 80px;
+                    max-height:80px;
+                    background-repeat:no-repeat;
+                    background-size:80% 80%;
+                    background-origin:content-box;
+                    border-radius: 50%;
+
+                    &.icon-1{
+                        background:url(./../../../assets/imgs/nav-menu-1.png);
+                    }
+
+                    &.icon-2{
+                        background:url(./../../../assets/imgs/nav-menu-2.png);
+                    }
+
+                    &.icon-3{
+                        background:url(./../../../assets/imgs/nav-menu-3.png);
+                    }
+
+                    &.icon-more{
+                        background:url(./../../../assets/imgs/nav-menu-more.png);
+                    }
+                }
+
+                span{
+                    width: 100%;
+                    height: 30px;
+                    line-height: 30px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    .searcher-box{
+
+    }
+
+    .products-box{
+
+    }
+}

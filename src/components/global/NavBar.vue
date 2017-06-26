@@ -50,11 +50,11 @@
 <style scoped lang="less">
 
 //APP默认颜色
-@defaultColor:#42bd56;
+@defaultColor: #42bd56;
 //导航底色
-@headerBg:@defaultColor;
+@headerBg: @defaultColor;
 //导航默认前景色
-@headerDefaultColor:rgb(73,73,73);
+@headerDefaultColor: rgb(73,73,73);
 
 .m-header{
     display: flex;
@@ -63,7 +63,7 @@
     padding: 0 10px;
     background: @headerBg;
     color: @headerDefaultColor;
-    border-bottom:1px solid #eee;
+    border-bottom: 1px solid #eee;
     a{
         color: @headerDefaultColor;
     }

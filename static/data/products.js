@@ -1,7 +1,7 @@
 /*
 *   初始化商品信息
 */
-var products=[
+const products=[
     {
         "Id":1001,              //商品ID
         "Name":"我是商品名称1",    //名称
@@ -25,3 +25,5 @@ var products=[
         "Description":""        //商品详情/描述
     }
 ]
+
+export default products;
