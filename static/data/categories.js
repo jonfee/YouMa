@@ -3,28 +3,28 @@
 */
 const categories=[
     {
-        "Name":"类目A",
-        "Id":"1",
-        "Icon":"/assets/imgs/categories/icon/",
-        "Picture":"/assets/imgs/categories/adpicture/",
-        "IsRecommend":true,
-        "ProductCount":20
+        "Name": "个人洗护",
+        "Id": 1,
+        "Icon": "/static/imgs/categories/icon/cate-icon-1.png",
+        "Picture": "/static/imgs/categories/adpicture/cate1.jpg",
+        "IsRecommend": true,
+        "ProductCount": 20
     },
     {
-        "Name":"类目B",
-        "Id":"2",
-        "Icon":"/assets/imgs/categories/icon/",
-        "Picture":"/assets/imgs/categories/adpicture/",
-        "IsRecommend":true,
-        "ProductCount":20
+        "Name": "进口",
+        "Id": 2,
+        "Icon": "/static/imgs/categories/icon/cate-icon-2.png",
+        "Picture": "/asstaticsets/imgs/categories/adpicture/cate2.jpg",
+        "IsRecommend": true,
+        "ProductCount": 18
     },
     {
-        "Name":"类目C",
-        "Id":"3",
-        "Icon":"/assets/imgs/categories/icon/",
-        "Picture":"/assets/imgs/categories/adpicture/",
-        "IsRecommend":true,
-        "ProductCount":20
+        "Name": "电子设备",
+        "Id": 3,
+        "Icon": "/static/imgs/categories/icon/cate-icon-3.png",
+        "Picture": "/static/imgs/categories/adpicture/cate3.png",
+        "IsRecommend": true,
+        "ProductCount": 6
     }
 ]
 

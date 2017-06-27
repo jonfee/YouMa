@@ -54,7 +54,7 @@ const routers =[
     },
     //用户默认
     {
-        name: 'register', 
+        name: 'user_default', 
         path: '/user', 
         redirect: '/user/login'
     },

@@ -6,24 +6,24 @@
 
     /*banner图片广告盒子样式*/
     .top-banner-box{
-        height:220px;
-        max-height:220px;
-        margin:0 auto;
-        padding:0px;
+        height: 180px;
+        max-height: 180px;
+        margin: 0 auto;
+        padding: 0px;
         box-sizing: border-box;
 
         img{
             max-width: 100%;
-            height:100%;
+            height: 100%;
         }
     }
 
     /*商品分类导航盒子样式*/
     .nav-menu-box{
         width: 100%;
-        height: 140px;
+        height: 120px;
         margin: 0px;
-        padding:20px 0px;
+        padding: 20px 0px;
         box-sizing: border-box;
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
@@ -40,40 +40,39 @@
             li{
                 margin: 0px;
                 padding: 0px;
-                width: 80px;
-                max-width: 80px;
+                width: 25%;
                 height: 80px;
-                max-height: 80px;
                 float: left;
+                text-align: center;
 
                 div.menu-icon{
                     width: 100%;
-                    height: 80px;
-                    max-width: 80px;
-                    max-height:80px;
-                    background-repeat:no-repeat;
-                    background-size:50px 50px;
-                    background-origin:content-box;
-                    border-radius: 50%;
+                    height: 50px;
+                    background-repeat: no-repeat;
+                    background-size: 50px 50px;
+                    background-origin: content-box;
+                    background-position: center;
+                    border-radius: 100%;
 
                     &.icon-1{
-                        background:url(./../../../assets/imgs/nav-menu-1.png);
+                        background-image:url(/static/imgs/categories/icon/cate-icon-1.png);
                     }
 
                     &.icon-2{
-                        background:url(./../../../assets/imgs/nav-menu-2.png);
+                        background-image:url(/static/imgs/categories/icon/cate-icon-2.png);
                     }
 
                     &.icon-3{
-                        background:url(./../../../assets/imgs/nav-menu-3.png);
+                        background-image:url(/static/imgs/categories/icon/cate-icon-3.png);
                     }
 
                     &.icon-more{
-                        background:url(./../../../assets/imgs/nav-menu-more.png);
+                        background-image:url(/static/imgs/categories/icon/cate-icon-more.png);
                     }
                 }
 
                 span{
+                    display: block;
                     width: 100%;
                     height: 30px;
                     line-height: 30px;
@@ -89,7 +88,6 @@
         box-sizing: border-box;
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
-        background: rgba(0, 222, 0, 0.2)
     }
 
     .products-box{
@@ -98,28 +96,117 @@
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
         background: rgba(222, 222, 222, 0.2);
-        padding: 20px 5px;
+        margin: 0px;
+        padding: 10px 0px;
 
         .separator{
             width: 100%;
-            height: 20px;
+            height: 30px;
+            line-height: 30px;
             letter-spacing: 10px;
+            font-size: 16px;
+            color: #666;
+            text-shadow: 1px 1px 0px #ccc;
         }
 
         ul.product-list{
+            width: 100%;
             list-style: none;
+            margin: 0px auto;
+            padding: 0px 2px;
 
-            li{
-                
+            li.product-item{
+                width: 100%;
+                height: 150px;
+                background: rgba(222, 222, 222, 0.2);
+                list-style: none;
+                margin: 0px auto;
+                padding: 5px;
+                display: -webkit-flex;
+                display: flex;
+                margin: 10px 0px;
+                transition: 0.3s;
+                border-bottom: 1px solid #dfdfdf;
+
+                &:hover{
+                    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+                }
+
+                .product-img{
+                    width: 140px;
+                    min-width: 140px;
+                    height: 100%;
+                    padding: 5px;
+                    
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 8px;
+                        padding: 2px;
+                    }
+                }
+
+                .product-info{
+                    width: 100%;
+                    height: 100%;
+                    padding: 5px;
+
+                    >span{
+                        text-align: left;
+                        display: block;
+
+                        &.product-name{
+                            padding: 10px 0px;
+                            color: #333;
+                            height: 50%;
+                        }
+
+                        &.product-category{
+                            height: 25%;
+                            line-height: 30px;
+                            color: gray;
+                            font-size: 14px;
+                        }
+                    }
+
+                    .product-price{
+                        width: 100%;
+                        height: 25%;
+                        display: -webkit-flex;
+                        display: flex;
+                        margin: 0px;
+                        padding: 0px;
+
+                        span{
+                            line-height: 30px;
+                            display: block;
+                            width: 50%;
+
+                            &.price_sale{
+                                font-size: 18px;
+                                color: red;
+                                text-align: left;
+                            }
+
+                            &.price_original{
+                                font-size: 14px;
+                                color: gray;
+                                text-align: right;
+                                text-decoration: line-through;
+                            }
+                        }
+                    }
+                }
             }
         }
 
         p.laster{
             width: 100%;
-            height:30px;
+            height: 30px;
             line-height: 30px;
             letter-spacing: 5px;
-            color: gray;
+            color: #aaa;
+            font-size: 14px;
         }
     }
 }
