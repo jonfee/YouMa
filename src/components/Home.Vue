@@ -11,7 +11,7 @@
                     <div class="menu-icon" :class="'icon-'+cate.Id"></div>
                     <span>{{ cate.Name }}</span>
                 </li>
-                <li class="more">
+                <li>
                     <div class="menu-icon icon-more"></div>
                     <span>更多</span>
                 </li>

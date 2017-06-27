@@ -28,14 +28,6 @@
 import './../../assets/sass/views/productlist.scss'
 
 export default {
-    data() {
-        return {
-            //商品集合
-            products: this.products,
-            //商品分类集合
-            categories: this.categories
-        }
-    },
     props: ['products','categories'],
     methods:{
         /**

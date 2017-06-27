@@ -44,10 +44,16 @@
                 height: 80px;
                 float: left;
                 text-align: center;
+                position: relative;
 
                 div.menu-icon{
-                    width: 100%;
+                    width: 50px;
                     height: 50px;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%-15;
+                    margin: auto;
+                    transform: translate(-50%,-50%);
                     background-repeat: no-repeat;
                     background-size: 50px 50px;
                     background-origin: content-box;
@@ -55,19 +61,19 @@
                     border-radius: 100%;
 
                     &.icon-1{
-                        background-image:url(/static/imgs/categories/icon/cate-icon-1.png);
+                        background-image:url('/static/imgs/categories/icon/cate-icon-1.png');
                     }
 
                     &.icon-2{
-                        background-image:url(/static/imgs/categories/icon/cate-icon-2.png);
+                        background-image:url('/static/imgs/categories/icon/cate-icon-2.png');
                     }
 
                     &.icon-3{
-                        background-image:url(/static/imgs/categories/icon/cate-icon-3.png);
+                        background-image:url('/static/imgs/categories/icon/cate-icon-3.png');
                     }
 
                     &.icon-more{
-                        background-image:url(/static/imgs/categories/icon/cate-icon-more.png);
+                        background-image:url('/static/imgs/categories/icon/cate-icon-more.png');
                     }
                 }
 
@@ -77,6 +83,7 @@
                     height: 30px;
                     line-height: 30px;
                     font-size: 14px;
+                    margin-top: 50px;
                 }
             }
         }
