@@ -1,5 +1,5 @@
 <template>
-    <ul class="product-list">
+    <ul class="product-list" :class="column">
         <!--单个商品展示区块，通过 v-for 循环绑定商品列表数据-->
         <li class="product-item" v-for="product in products" @click="goDetails(product.Id)">
             <!--商品图片-->
@@ -28,7 +28,7 @@
 import './../../assets/sass/views/productlist.scss'
 
 export default {
-    props: ['products','categories'],
+    props: ['column','products','categories'],
     methods:{
         /**
         *   获取商品分类名称

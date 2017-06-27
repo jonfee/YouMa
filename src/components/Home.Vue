@@ -23,7 +23,7 @@
                 今日推荐
             </div>
             <!--推荐商品-->
-            <product_list :categories="categories" :products="recommandProducts"></product_list>
+            <product_list :categories="categories" :products="recommandProducts" ></product_list>
             <p class="laster">-- 没有更多推荐商品了 --</p>
         </div>
     </div>
