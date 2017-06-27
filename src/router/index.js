@@ -54,7 +54,7 @@ const routers =[
     },
     //用户默认
     {
-        name: 'register', 
+        name: 'user_default', 
         path: '/user', 
         redirect: '/user/login'
     },
@@ -70,7 +70,7 @@ const routers =[
     //分类商品列表
     {
         name: 'category_products', 
-        path: '/product/category/:id', 
+        path: '/product/category/', 
         component: CategoryProducts,
         meta:{
             title: '分类商品'
@@ -79,7 +79,7 @@ const routers =[
     //商品搜索结果
     {
         name: 'search_result', 
-        path: '/product/search/:word', 
+        path: '/product/search', 
         component: SearchResult,
         meta:{
             title: '搜索结果'
@@ -88,7 +88,7 @@ const routers =[
     //商品详情
     {
         name: 'product_details', 
-        path: '/product/details/:id', 
+        path: '/product/details', 
         component: ProductDetails,
         meta:{
             title: '商品详情'

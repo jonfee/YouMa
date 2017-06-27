@@ -1,0 +1,97 @@
+/**
+*   商品列表展示组件样式
+*/
+
+@charset 'UTF-8';
+
+ul.product-list{
+    width: 100%;
+    list-style: none;
+    margin: 0px auto;
+    padding: 0px 2px;
+
+    li.product-item{
+        width: 100%;
+        height: 150px;
+        background: rgba(222, 222, 222, 0.2);
+        list-style: none;
+        margin: 0px auto;
+        padding: 5px;
+        display: -webkit-flex;
+        display: flex;
+        margin: 10px 0px;
+        transition: 0.3s;
+        border-bottom: 1px solid #dfdfdf;
+
+        &:hover{
+            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+            cursor: pointer;
+        }
+
+        .product-img{
+            width: 140px;
+            min-width: 140px;
+            height: 100%;
+            padding: 5px;
+            
+            img{
+                width: 100%;
+                height: 100%;
+                border-radius: 8px;
+                padding: 2px;
+            }
+        }
+
+        .product-info{
+            width: 100%;
+            height: 100%;
+            padding: 5px;
+
+            >span{
+                text-align: left;
+                display: block;
+
+                &.product-name{
+                    padding: 10px 0px;
+                    color: #333;
+                    height: 50%;
+                }
+
+                &.product-category{
+                    height: 25%;
+                    line-height: 30px;
+                    color: gray;
+                    font-size: 14px;
+                }
+            }
+
+            .product-price{
+                width: 100%;
+                height: 25%;
+                display: -webkit-flex;
+                display: flex;
+                margin: 0px;
+                padding: 0px;
+
+                span{
+                    line-height: 30px;
+                    display: block;
+                    width: 50%;
+
+                    &.price_sale{
+                        font-size: 18px;
+                        color: red;
+                        text-align: left;
+                    }
+
+                    &.price_original{
+                        font-size: 14px;
+                        color: gray;
+                        text-align: right;
+                        text-decoration: line-through;
+                    }
+                }
+            }
+        }
+    }
+}

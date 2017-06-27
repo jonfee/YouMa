@@ -5,7 +5,6 @@ import VueRouter from 'vue-router';
 import App from './App';
 import routers from './router';
 import './assets/sass/base/common.scss';
-//import './assets/less/color.less';
 
 Vue.config.productionTip = false;
 

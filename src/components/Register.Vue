@@ -1,7 +1,7 @@
 <template>
     <div class="register">
         <div class="logo">
-            <img src="./../assets/imgs/logo.png">
+            <img src="/static/imgs/logo.png">
         </div>
     
         <div class="form">
