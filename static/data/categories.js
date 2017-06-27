@@ -14,7 +14,7 @@ const categories=[
         "Name": "进口",
         "Id": 2,
         "Icon": "/static/imgs/categories/icon/cate-icon-2.png",
-        "Picture": "/asstaticsets/imgs/categories/adpicture/cate2.jpg",
+        "Picture": "/static/imgs/categories/adpicture/cate2.jpg",
         "IsRecommend": true,
         "ProductCount": 18
     },
