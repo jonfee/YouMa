@@ -7,11 +7,11 @@
         <!--商品分类导航展示区域-->
         <div class="nav-menu-box">
             <ul>
-                <li v-for="cate in recommandCategories">
+                <li v-for="cate in recommandCategories" @click="goCategoryProducts(cate.Id)">
                     <div class="menu-icon" :class="'icon-'+cate.Id"></div>
                     <span>{{ cate.Name }}</span>
                 </li>
-                <li>
+                <li @click="goCategories">
                     <div class="menu-icon icon-more"></div>
                     <span>更多</span>
                 </li>
@@ -89,6 +89,25 @@ export default {
         */
         getCategoryName: function(cateId){
             return (global.Categories.filter(item=>item.Id==cateId)[0].Name || '');
+        },
+
+        /**
+        *   跳转到分类下的商品列表
+        */
+        goCategoryProducts: function(cateId){
+            this.$router.push({
+                name: 'category_products',
+                query: { id: cateId }
+            });
+        },
+
+        /**
+        *  跳转到商品分类
+        */
+        goCategories: function(){
+            this.$router.push({
+                name: 'categories'
+            });
         }
     }
 }

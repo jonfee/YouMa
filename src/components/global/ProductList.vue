@@ -41,10 +41,10 @@ export default {
         *   跳转到商品详情页
         */
         goDetails: function(productId){
-            this.$route.push({
+            this.$router.push({
                 name: 'product_details',
                 query: { id: productId }
-            })
+            });
         }
     }
 }
