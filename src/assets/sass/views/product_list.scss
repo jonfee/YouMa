@@ -25,7 +25,7 @@ ul.product-list{
         }
 
         .product-img{            
-            padding: 1px;
+            padding: 5px;
             
             img{
                 width: 100%;
@@ -152,13 +152,13 @@ ul.columns-two{
     padding: 0px;
     
     li.product-item{
-        width: -moz-calc(50% -8px);
-        width: -webkit-calc(50% -8px);
-        width: calc(50% - 8px);
+        width: -moz-calc(50% -15px);
+        width: -webkit-calc(50% -15px);
+        width: calc(50% - 15px);
         height: auto;
         display: inline-block;
         padding: 0px;        
-        margin: 4px;
+        margin: 5px;
         box-sizing: border-box;
 
         .product-img{
@@ -167,7 +167,7 @@ ul.columns-two{
 
             img{
                 border-radius: 5px;
-                padding: 1px;
+                padding: 2px;
             }
         }     
 

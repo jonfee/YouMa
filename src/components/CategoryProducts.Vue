@@ -1,5 +1,6 @@
 <template>
     <!--商品展示区域-->
+<<<<<<< HEAD
     <section class="products-box">
         <section class="products-statistics">
              该分类下共有 {{ products.length }} 件商品
@@ -8,6 +9,16 @@
         <product_list :categories="categories" :products="products" class="columns-two" ></product_list>
         <p class="laster">-- 没有更多商品了 --</p>
     </section>
+=======
+    <div class="products-box">
+        <div class="category-info">
+            <img :src="category.Picture" />
+        </div>
+        <!--商品-->
+        <product_list :categories="categories" :products="recommandProducts" class="columns-two" ></product_list>
+        <p class="laster">-- 没有更多商品了 --</p>
+    </div>
+>>>>>>> 分类商品页编写（未完成）
 </template>
 
 <script>
@@ -24,8 +35,15 @@ export default{
         return {
             //导航信息
             navinfo:{
+<<<<<<< HEAD
                 title: '分类商品',
                 backlink: '/product/categories'
+=======
+                title: '全部分类',
+                backlink: '',
+                backtext: '',
+                noback: true
+>>>>>>> 分类商品页编写（未完成）
             },
             //所有商品分类
             categories: null,
@@ -39,13 +57,17 @@ export default{
     props: ['setnav'],
     created: function(){
 
+<<<<<<< HEAD
         // 分类ID
         var cateId = this.$route.query.id;
 
+=======
+>>>>>>> 分类商品页编写（未完成）
         //设置导航信息
         this.$emit('setnav',this.navinfo);   
 
         //所有商品分类
+<<<<<<< HEAD
         this.categories = global.Categories;
         
         //推荐的商品分类
@@ -53,6 +75,15 @@ export default{
 
         //设置导航标题
         this.navinfo.title=this.currentCategory.Name;
+=======
+        this.categories = global.categories;
+
+        // 分类ID
+        var cateId = this.$route.query.id;
+        
+        //推荐的商品分类
+        this.currentCategory = this.categories.filter(item=>item.Id==cateId);
+>>>>>>> 分类商品页编写（未完成）
 
         //推荐的商品
         this.products = this.getProducts(cateId);
