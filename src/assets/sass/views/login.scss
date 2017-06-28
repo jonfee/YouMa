@@ -141,4 +141,25 @@
             }
         }
     }
+    .toast {
+        border: solid 1px red;
+        width: auto;
+        min-width: 30px;
+        position: fixed;
+        top: 10%;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        .icon {
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
+            display: inline-block;
+        }
+        .msg {
+            height: 28px;
+            display: block;
+        }
+    }
 }

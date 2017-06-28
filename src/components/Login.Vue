@@ -19,6 +19,9 @@
                     <router-link :to="{name:'register'}">&nbsp;注册&nbsp;</router-link>吧</p>
             </form>
         </div>
+        <div class="toast" v-show="false">
+            <img class="icon" src="/static/icons/success.ico"> <span class="msg">提示消息</span>
+        </div>
     </div>
 </template>
 
