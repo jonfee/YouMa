@@ -14,7 +14,7 @@
 
 // 引入全局配置文件
 import {global} from './../../static/global'
-// 引入首页样式
+// 引入样式
 import './../assets/sass/views/category_products.scss'
 // 商品列表展示组件
 import product_list from '@/components/global/productlist'

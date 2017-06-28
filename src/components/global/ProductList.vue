@@ -9,7 +9,7 @@
             <!--商品信息-->
             <section class="product-info">
                 <!--商品名称-->
-                <span class="product-name">{{ product.Name+product.Name+product.Name }}</span>
+                <span class="product-name">{{ product.Name }}</span>
                 <!--商品分类-->
                 <span class="product-category">{{ getCategoryName(product.CategoryId) }}</span>
                 <!--商品价格-->
