@@ -1,6 +1,5 @@
 <template>
     <!--商品展示区域-->
-<<<<<<< HEAD
     <section class="products-box">
         <section class="products-statistics">
              该分类下共有 {{ products.length }} 件商品
@@ -9,16 +8,6 @@
         <product_list :categories="categories" :products="products" class="columns-two" ></product_list>
         <p class="laster">-- 没有更多商品了 --</p>
     </section>
-=======
-    <div class="products-box">
-        <div class="category-info">
-            <img :src="category.Picture" />
-        </div>
-        <!--商品-->
-        <product_list :categories="categories" :products="recommandProducts" class="columns-two" ></product_list>
-        <p class="laster">-- 没有更多商品了 --</p>
-    </div>
->>>>>>> 分类商品页编写（未完成）
 </template>
 
 <script>
@@ -36,6 +25,7 @@ export default{
             //导航信息
             navinfo:{
 <<<<<<< HEAD
+<<<<<<< HEAD
                 title: '分类商品',
                 backlink: '/product/categories'
 =======
@@ -44,6 +34,10 @@ export default{
                 backtext: '',
                 noback: true
 >>>>>>> 分类商品页编写（未完成）
+=======
+                title: '分类商品',
+                backlink: '/product/categories'
+>>>>>>> 临时签入
             },
             //所有商品分类
             categories: null,
@@ -58,11 +52,19 @@ export default{
     created: function(){
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         // 分类ID
         var cateId = this.$route.query.id;
 
 =======
 >>>>>>> 分类商品页编写（未完成）
+=======
+        // 分类ID
+        var cateId = this.$route.query.id;
+
+        alert(cateId)
+        
+>>>>>>> 临时签入
         //设置导航信息
         this.$emit('setnav',this.navinfo);   
 
@@ -79,11 +81,18 @@ export default{
         this.categories = global.categories;
 
         // 分类ID
-        var cateId = this.$route.query.id;
+        var cateId = this.$router.query.id;
         
         //推荐的商品分类
+<<<<<<< HEAD
         this.currentCategory = this.categories.filter(item=>item.Id==cateId);
 >>>>>>> 分类商品页编写（未完成）
+=======
+        this.currentCategory = this.categories.filter(item=>item.Id==cateId)[0] || {};
+
+        //设置导航标题
+        this.navinfo.title=this.currentCategory.Name;
+>>>>>>> 临时签入
 
         //推荐的商品
         this.products = this.getProducts(cateId);
