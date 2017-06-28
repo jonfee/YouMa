@@ -1,11 +1,11 @@
 <template>
     <div class="container">
         <!--Banner展示区域-->
-        <div class="top-banner-box">
+        <section class="top-banner-box">
             <img src="/static/imgs/ad/home_01.png" />
-        </div>
+        </section>
         <!--商品分类导航展示区域-->
-        <div class="nav-menu-box">
+        <section class="nav-menu-box">
             <ul>
                 <li v-for="cate in recommandCategories" @click="goCategoryProducts(cate.Id)">
                     <div class="menu-icon" :class="'icon-'+cate.Id"></div>
@@ -16,16 +16,16 @@
                     <span>更多</span>
                 </li>
             </ul>
-        </div>
+        </section>
         <!--推荐商品展示区域-->
-        <div class="products-box">
+        <section class="products-box">
             <div class="separator">
                 今日推荐
             </div>
             <!--推荐商品-->
-            <product_list :categories="categories" :products="recommandProducts" ></product_list>
+            <product_list :categories="categories" :products="recommandProducts" class="columns-one" ></product_list>
             <p class="laster">-- 没有更多推荐商品了 --</p>
-        </div>
+        </section>
     </div>
 </template>
 

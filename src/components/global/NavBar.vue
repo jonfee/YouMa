@@ -1,5 +1,5 @@
 <template>
-    <div v-if="!config.hide" class="m-header is-bg is-fixed">
+    <section v-if="!config.hide" class="m-header is-bg is-fixed">
         <div class="m-header-button is-left">
             <router-link  v-if="!config.noback" :to="config.backlink">{{ config.backtext }}</router-link>
         </div>    
@@ -7,7 +7,7 @@
         <div class="m-header-button is-right">
             <a href="javascript:;" style="display:none;">分享</a>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>

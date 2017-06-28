@@ -70,7 +70,7 @@ const routers =[
     //分类商品列表
     {
         name: 'category_products', 
-        path: '/product/category/', 
+        path: '/product/category', 
         component: CategoryProducts,
         meta:{
             title: '分类商品'
