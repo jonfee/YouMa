@@ -36,3 +36,12 @@
         </div>
     </div>
 </template>
+
+<script>
+
+// 引入全局配置文件
+import {global} from './../../static/global'
+// 引入样式
+import './../assets/sass/views/order-confirm.scss'
+
+</script>

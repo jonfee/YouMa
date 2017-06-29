@@ -5,15 +5,85 @@
 @charset 'UTF-8';
 
 #order-confirm{
+
     width:100%;
     height: auto;
     margin: 0px;
     padding: 0px;
     background: #f2f2f2;
 
+    >*{
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        height: auto;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+    }
+
     /*收货地址*/
     .address{
+        background: #fff;
+        font-size: 14px;
 
+        /*标头*/
+        .addr-title{
+            height: 30px;
+            line-height: 30px;
+            display: -webkit-flex;
+            display: flex;
+            flex-direction: row;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+
+            >span{
+                display: inline-block;
+                width: 50%;
+                height: 30px;
+
+                &:first-child{
+                    font-size: 16px;
+                    text-align: left;
+                }                
+
+                &:last-child{
+                    font-size: 14px;
+                    text-align: right;
+                }
+            }            
+        }
+
+        input{
+            height: 25px;
+            line-height: 25px;
+            margin-left: 10px;
+        }
+
+        /*收货人、联系电话*/
+        ul.addr-linkman{
+            list-style: none;
+            display: -webkit-flex;
+            display: flex;
+            flex-direction: row;
+            -webkit-justify-content: space-between;
+            justify-content: space-between;
+            
+            
+            li{
+                width: 50%;
+                height: 30px;
+
+                input{
+                    width: 100px;
+                }
+
+                &:first-child{
+                    text-align: left;
+                }
+            }
+        }
     }
 
     /*购买清单*/
