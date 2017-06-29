@@ -14,6 +14,7 @@
         padding: 0px 0px;
         text-align: left;
 
+        //分类说明区域
         .category-info{
             width: 100%;
             height: 150px;
@@ -22,11 +23,13 @@
             box-shadow: 0px 3px 5px #ccc;
             opacity: 0.8;
 
+            //分类宣传图
             img{
                 object-fit: cover;
             }
         }
 
+        //分类下的商品统计区块
         .products-statistics{
             margin-top: 10px;
             text-align: center;
@@ -38,6 +41,7 @@
             text-shadow: 1px 1px 0px #ccc;
         }
 
+        //页面底部
         p.laster{
             text-align: center;
             width: 100%;

@@ -12,6 +12,7 @@ ul.product-list{
     list-style: none;
     margin: 0px auto;
 
+    //单个商品数据展示区块
     li.product-item{
         background: rgba(222, 222, 222, 0.2);
         border-bottom: 1px solid #dfdfdf;
@@ -19,11 +20,13 @@ ul.product-list{
         transition: 0.3s;    
         box-sizing: border-box;    
 
+        //hover时效果
         &:hover{
             box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
             cursor: pointer;
         }
 
+        //商品展示图区样式
         .product-img{            
             padding: 1px;
             
@@ -33,6 +36,7 @@ ul.product-list{
             }
         }
 
+        //商品信息展示区（名称、所属分类、价格等）
         .product-info{
             height: 100%;
 
@@ -40,12 +44,14 @@ ul.product-list{
                 text-align: left;
                 display: block;
 
+                //名称
                 &.product-name{
                     color: #333;
                     overflow: hidden;
                     text-overflow: ellipsis;   
                 }
 
+                //所属分类
                 &.product-category{
                     height: 25%;
                     line-height: 30px;
@@ -54,6 +60,7 @@ ul.product-list{
                 }
             }
 
+            //价格
             p.product-price{
                 width: 100%;
                 display: -webkit-flex;
@@ -66,11 +73,13 @@ ul.product-list{
                     display: block;
                     width: 50%;
 
+                    //当前销售价
                     &.price_sale{
                         color: red;
                         text-align: left;
                     }
 
+                    //原价
                     &.price_original{
                         color: gray;
                         text-align: right;

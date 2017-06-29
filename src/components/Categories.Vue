@@ -2,10 +2,10 @@
     <div class="category-data">
         <ul>
             <li v-for="cate in categories" @click="goCategoryProducts(cate.Id)">
-                <img :src="cate.Picture" />
+                <div :class="cate.Picture"></div>
                 <p class="category-name">{{ cate.Name }}</p>
                 <p class="category-info">
-                    共 <span class="product-count">{{ cate.ProductCount }}</span> 件商品
+                    共&nbsp;{{ cate.ProductCount }}&nbsp;件商品
                 </p>
             </li>
         </ul>

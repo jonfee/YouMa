@@ -8,11 +8,11 @@
         <section class="nav-menu-box">
             <ul>
                 <li v-for="cate in recommandCategories" @click="goCategoryProducts(cate.Id)">
-                    <div class="menu-icon" :class="'icon-'+cate.Id"></div>
+                    <div class="menu-icon" :class="'cate-icon-'+cate.Id"></div>
                     <span>{{ cate.Name }}</span>
                 </li>
                 <li @click="goCategories">
-                    <div class="menu-icon icon-more"></div>
+                    <div class="menu-icon cate-icon-more"></div>
                     <span>更多</span>
                 </li>
             </ul>

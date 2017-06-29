@@ -3,28 +3,28 @@
 */
 const categories=[
     {
-        "Name": "个人洗护",
+        "Name": "益智玩具",
         "Id": 1,
-        "Icon": "/static/imgs/categories/icon/cate-icon-1.png",
-        "Picture": "/static/imgs/categories/adpicture/cate1.jpg",
+        "Icon": "cate-icon-1",
+        "Picture": "cate-pic-1",
         "IsRecommend": true,
         "ProductCount": 20
     },
     {
-        "Name": "进口",
+        "Name": "数码配件",
         "Id": 2,
-        "Icon": "/static/imgs/categories/icon/cate-icon-2.png",
-        "Picture": "/static/imgs/categories/adpicture/cate2.jpg",
-        "IsRecommend": true,
-        "ProductCount": 18
-    },
-    {
-        "Name": "电子设备",
-        "Id": 3,
-        "Icon": "/static/imgs/categories/icon/cate-icon-3.png",
-        "Picture": "/static/imgs/categories/adpicture/cate3.png",
+        "Icon": "cate-icon-2",
+        "Picture": "cate-pic-2",
         "IsRecommend": true,
         "ProductCount": 6
+    },
+    {
+        "Name": "国际品牌",
+        "Id": 3,
+        "Icon": "cate-icon-3",
+        "Picture": "cate-pic-3",
+        "IsRecommend": true,
+        "ProductCount": 18
     }
 ]
 
