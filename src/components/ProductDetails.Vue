@@ -38,7 +38,7 @@
 
 // 引入全局配置文件
 import {global} from './../../static/global'
-// 引入首页样式
+// 引入样式
 import './../assets/sass/views/product_details.scss'
 
 export default{
