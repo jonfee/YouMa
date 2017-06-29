@@ -12,7 +12,7 @@
     padding: 0px;
     background: #f2f2f2;
 
-    >*{
+    *{
         margin: 0px;
         padding: 0px;
         width: 100%;
@@ -22,29 +22,41 @@
         -webkit-box-sizing: border-box;
     }
 
+    >*{
+        background: #fff;
+    }
+
+    
+
     /*收货地址*/
     .address{
-        background: #fff;
         font-size: 14px;
+        margin-top: 5px;
+        padding: 5px 0px;
+        color: #666;
+
+        >*{
+            padding: 0px 5px;   
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;                
+        }
 
         /*标头*/
         .addr-title{
-            height: 30px;
-            line-height: 30px;
+            height: 40px;
+            line-height: 40px;
             display: -webkit-flex;
             display: flex;
-            flex-direction: row;
-            box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            -webkit-box-sizing: border-box;
 
             >span{
                 display: inline-block;
                 width: 50%;
-                height: 30px;
+                height: 40px;
 
                 &:first-child{
                     font-size: 16px;
+                    font-weight: bold;
                     text-align: left;
                 }                
 
@@ -56,48 +68,166 @@
         }
 
         input{
-            height: 25px;
-            line-height: 25px;
-            margin-left: 10px;
+            width: 20%;
+            height: 30px;
+            line-height: 30px;
+            margin-left: 10px;            
         }
 
         /*收货人、联系电话*/
         ul.addr-linkman{
             list-style: none;
             display: -webkit-flex;
-            display: flex;
-            flex-direction: row;
-            -webkit-justify-content: space-between;
-            justify-content: space-between;
-            
+            display: flex; 
+            margin: 10px 0px 0px 0px;
+            padding: 5px 20px;       
             
             li{
                 width: 50%;
                 height: 30px;
 
                 input{
-                    width: 100px;
+                    width: 120px;
                 }
 
                 &:first-child{
                     text-align: left;
                 }
+
+                &:last-child{
+                    text-align: right;
+                }
+            }
+        }
+
+        /*详细地址*/
+        .addr-street{
+            padding: 15px 20px;       
+            text-align: right;
+
+            input{
+                width: -moz-calc(100% - 54px);
+                width: -webkit-calc(100% - 54px);
+                width: calc(100% - 54px);
             }
         }
     }
 
     /*购买清单*/
     .buy-list{
+        margin-top: 10px;
+        padding: 0px 10px;
 
+        /*购物清单标头*/
+        p.buylist-title{
+            height: 40px;
+            line-height: 40px;
+            text-align: left;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        /*所购商品信息展示区*/
+        .buylist-content{
+            padding: 10px 0px;
+            display: -webkit-flex;
+            display: flex; 
+            
+            /*商品图*/
+            img{
+                width: 120px;
+                height: 120px;
+                border-radius: 5px;
+                padding: 2px;
+                border: 1px solid #f1f1f1;
+            }
+
+            /*商品信息：名称、价格、购买数量等*/
+            div.product-info{
+                text-align: left;
+                padding-left: 10px;
+
+                p.product-name{
+                    height: 50px;
+                    line-height: 20px;
+                    margin-top: 15px;
+                }
+
+                p.product-price{
+                    margin-top: 20px;
+                    display: -webkit-flex;
+                    display: flex; 
+
+                    >:first-child{
+                        color: red;
+                    }
+
+                    >:last-child{
+                        color: green;
+                        text-align: center;
+                    }
+                }
+            }
+        }
     }
 
     /*费用统计*/
-    .order-price{
+    .order-amount{
+        margin-top: 10px;
+        >*{
+            padding: 10px;
+            display: -webkit-flex;
+            display: flex;
+        }
 
+        .freight{
+            
+            border: 1px solid #f1f1f1;
+
+            span{
+                width: 50%;
+
+                &:first-child{
+                    text-align: left;
+                }
+
+                &:last-child{
+                    text-align: right;
+                }
+            }
+        }
+
+        .total-amount{
+            span{
+                width: 50%;
+                font-weight: bold;
+
+                &:first-child{
+                    text-align: left;
+                }
+
+                &:last-child{
+                    text-align: right;
+                    color: red;
+                }
+            }
+        }
     }
 
     /*表单操作*/
-    .form-action{
+    .form-action{ 
+        height: 50px;
+        line-height: 50px;      
+        background: #67C36F;
+        border: none;
+        font-size: 14px;
+        color: #fff;
+        transition: .3s;
+        cursor: pointer;
+        position: fixed;
+        bottom: 0px;
 
+        &:hover{
+            opacity: 0.8;
+        }
     }
 }
