@@ -13,6 +13,7 @@
         margin: 1px 0px;
         padding: 0px 0px;
         text-align: left;
+        background: #f2f2f2;
 
         //分类说明区域
         .category-info{
@@ -31,13 +32,16 @@
 
         //分类下的商品统计区块
         .products-statistics{
-            margin-top: 10px;
+            margin: 0px;
+            padding: 0px;
             text-align: center;
             width: 100%;
-            height: 30px;
-            line-height: 30px;
+            height: 40px;
+            line-height: 40px;
             font-size: 14px;
             color: #666;
+            background: #fff;
+            border-bottom: 1px solid #f1f1f1;
             text-shadow: 1px 1px 0px #ccc;
         }
 

@@ -5,6 +5,7 @@
     height: auto;
     margin: 0px;
     padding: 0px;
+    background: #f2f2f2;
 
     //商品展示图区域样式
     .product-pic{
@@ -22,19 +23,20 @@
 
     //关键信息区域样式，含：名称、价格、库存、销量等
     .product-info{
-        width: -moz-calc(100% - 20px);
-        width: -webkit-calc(100% - 20px);
-        width: calc(100% - 20px);
-        margin: 0px 10px;
-        padding: 0px;
-        border-bottom: 1px solid #ccc;
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px 5px;;
+        background: #fff;
 
         p{
+            margin: 0px;
             display: block;
             width: 100%;
             text-align: left;
 
             &.product-name{
+                height: 50px;
+                line-height: 20px;
                 font-size: 16px;
                 font-weight: bold;
                 color: #333;
@@ -42,6 +44,8 @@
             }
 
             &.product-price{
+                height: 35px;
+                line-height: 35px;
                 font-size: 14px;
 
                 >span{
@@ -51,6 +55,8 @@
             }
 
             &.product-sales{
+                height: 35px;
+                line-height: 35px;
                 font-size:14px;
                 color: gray;
             }
@@ -62,9 +68,9 @@
         
         width: 100%;
         height: auto;
-        margin: 0px 0px 50px 0px;
+        margin: 10px 0px 50px 0px;
         padding: 0px 10px;
-        //background: rgba(222, 222, 222, 0.2);
+        background: #fff;
 
         .details-tip{
             display: block;
@@ -128,6 +134,7 @@
                     font-weight: bold;
                     border-top-left-radius: 5px;
                     border-bottom-left-radius: 5px;
+                    cursor: pointer;
                 }
 
                 /*购买数*/
@@ -141,6 +148,7 @@
                     font-weight: bold;
                     border-top-right-radius: 5px;
                     border-bottom-right-radius: 5px;
+                    cursor: pointer;
                 }
 
                 &:hover:not(.input-num){
@@ -185,6 +193,7 @@
             font-size: 14px;
             color: #fff;
             transition: .3s;
+            cursor: pointer;
 
             &:hover{
                 opacity: 0.8;
