@@ -3,7 +3,7 @@
         <div class="logo">
             <img src="/static/imgs/logo.png">
         </div>
-
+    
         <div class="form">
             <form>
                 <div class="username">
@@ -26,6 +26,7 @@
 
 import './../assets/sass/views/login.scss'
 import { storage as Storage } from './../utils/storage'
+import security from './../utils/security'
 
 export default {
     data() {
@@ -34,17 +35,17 @@ export default {
                 username: '',
                 password: ''
             },
-            navinfo:{
-                title:'用户登录',
-                backlink:'/index',
+            navinfo: {
+                title: '用户登录',
+                backlink: '/index',
                 backtext: ''
             }
         }
     },
-    props:['setnav'],
-    created: function(){
+    props: ['setnav'],
+    created: function () {
         //设置导航信息
-        this.$emit('setnav',this.navinfo);
+        this.$emit('setnav', this.navinfo);
     },
     methods: {
         login() {
@@ -70,8 +71,13 @@ export default {
                 return;
             }
 
+            // 设置当前登录用户的Cookie
+            security.setCurrentUser({ "username": dbUser.username });
             // 跳转至首页
             this.$router.push('home');
+        },
+        getLoginUserCookieKey() {
+            return '__youma.loginuser_';
         }
     }
 }
