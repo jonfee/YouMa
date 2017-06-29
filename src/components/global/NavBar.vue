@@ -8,7 +8,7 @@
             <a href="javascript:;" style="display:none;">分享</a>
         </div>
     
-        <div class="userInfo" v-show="isShowAvatar">
+        <div class="userInfo" v-show="isShowAvatar" @click="onAvtarClick">
             <img :src='avatar'>
         </div>
     </div>
@@ -34,6 +34,12 @@ export default {
             default: _defInfo
         }
     },
+    created() {
+        this.user = security.getCurrentUser();
+
+        // 登录注册页面不显示用户Logo
+        this.isShowAvatar = (this.info && this.info.title != '用户登录' && this.info.title != '新用户注册');
+    },
     computed: {
         config: function () {
             return {
@@ -43,22 +49,32 @@ export default {
                 noback: this.info.noback || _defInfo.noback,
                 hide: this.info.hide || _defInfo.hide
             }
+        },
+        avatar() {
+            return this.user ? '/static/icons/loginUser.ico' : '/static/icons/unloginUser.ico';
         }
     },
     data() {
         return {
-            avatar: '/static/icons/unloginUser.ico', //头像图标
-            isShowAvatar: false // 是否显示头像
+            isShowAvatar: false, // 是否显示头像
+            user: null
         }
     },
     methods: {
-
+        onAvtarClick() {
+            if (this.user) {
+                console.log('个人中心');
+            } else {
+                this.$router.push('user/login');
+            }
+        }
     },
     watch: {
         "info": {
             handler(newVal, oldVal) {
-                let user = security.getCurrentUser();
-                this.avatar = user ? '/static/icons/loginUser.ico' : '/static/icons/unloginUser.ico';
+                this.user = security.getCurrentUser();
+
+                // 登录注册页面不显示用户Logo
                 this.isShowAvatar = (newVal.title != '用户登录' && newVal.title != '新用户注册');
             }
 

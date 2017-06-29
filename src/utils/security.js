@@ -28,7 +28,6 @@ let deserialize = function(value) {
 
 export default {
     setCurrentUser(user) {
-        console.log(user);
         if (user && isJSON(user)) {
             // 设置当前登录用户的Cookie
             document.cookie = `${loginUserCookieKey}=${serialize(user)}; max-age=${maxage}; `
@@ -42,7 +41,7 @@ export default {
 
             let userCookie = unescape(arr[2]);
 
-            let user = deserialize(user);
+            let user = deserialize(userCookie);
             if (user) {
                 this.setCurrentUser(user); //重新续约当前登录用户
 

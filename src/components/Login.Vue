@@ -71,7 +71,6 @@ export default {
                 return;
             }
 
-            console.log(security);
             // 设置当前登录用户的Cookie
             security.setCurrentUser({ "username": dbUser.username });
             // 跳转至首页
