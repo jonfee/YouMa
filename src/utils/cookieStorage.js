@@ -1,0 +1,73 @@
+
+//《JavaScript权威指南》一书中有实现基于cookie的存储API，我把代码敲下来
+
+//默认配置
+const defaults = {
+    maxage: 60*60*24*1000,  //默认1000天
+    path: '/'
+}
+let getCookie = function(){
+    var _cookie = {};
+    var all = document.cookie;
+    if(all === "")
+        return _cookie;
+    var list = all.split("; ");
+    for(var i=0; i < list.length; i++){
+        var cookieData = list[i].split("=");
+        var name = cookieData[0];
+        var value = cookieData[1];
+        value = decodeURIComponent(value);
+        _cookie[name] = value;
+    }
+    return _cookie;
+}
+
+let cookie = getCookie();
+let keys = [];
+
+let storage = {
+    set: function(key, value, maxage, path){
+        if(!(key in cookie)){
+            keys.push(key);
+        }
+
+        cookie[key] = value;
+
+        maxage = maxage || defaults.maxage;
+        path = path || defaults.path;
+
+        var newCookie = key + "=" + encodeURIComponent(value);
+        newCookie +="; max-age=" + maxage;
+        newCookie += "; path=" + path;
+        document.cookie = newCookie;
+    },
+    get: function(key){
+        return cookie[key] || null;
+    },
+    remove: function(key){
+        if(!(key in cookie)) return;
+
+        delete cookie[key];
+
+        for(var i = 0; i < keys.length; i++){
+            if(keys[i] === key){
+                keys.splice(i,1);
+                break;
+            }
+        }
+
+        document.cookie = key + "=; max-age=0";
+    },
+    clear: function(){
+        for(var key in keys){
+            remove(key);
+        }
+
+        cookie = {};
+        keys = [];
+    }
+}
+
+export{
+    storage
+}
