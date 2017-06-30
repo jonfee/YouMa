@@ -59,7 +59,6 @@ export default {
     components: { product_list },
     props: ['setnav'],
     created: function(){
-
         //设置导航信息
         this.$emit('setnav',this.navinfo);   
 

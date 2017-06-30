@@ -25,8 +25,8 @@
 <script>
 
 import './../assets/sass/views/login.scss'
-import { storage as Storage } from './../utils/storage'
 import security from './../utils/security'
+import { storage as Storage } from './../utils/localStorage'
 
 export default {
     data() {
