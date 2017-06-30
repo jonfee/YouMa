@@ -7,11 +7,11 @@
                 <span>更多地址请选择&nbsp;〉</span>
             </div>
             <ul class="addr-linkman">
-                <li><span>收货人</span><input type="text" /></li>
+                <li><span>姓名</span><input type="text" /></li>
                 <li><span>电话</span><input type="text" /></li>
             </ul>
             <div class="addr-street">
-                <span>地&nbsp;&nbsp;&nbsp;&nbsp;址</span><input type="text" />
+                <span>地址</span><input type="text" />
             </div>
         </section>
         <!--购买清单-->
@@ -34,7 +34,7 @@
             <div class="total-amount"><span>总计</span><span>￥{{ totalAmount }}</span></div>
         </section>
         <!--操作-->
-        <section class="form-action">提交订单</section>
+        <section class="form-action" @click="submit">提交订单</section>
     </div>
 </template>
 

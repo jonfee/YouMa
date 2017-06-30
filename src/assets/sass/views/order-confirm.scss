@@ -11,12 +11,12 @@
     margin: 0px;
     padding: 0px;
     background: #f2f2f2;
+    font-size: 14px;
 
     *{
         margin: 0px;
         padding: 0px;
         width: 100%;
-        height: auto;
         box-sizing: border-box;
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
@@ -34,6 +34,7 @@
         margin-top: 5px;
         padding: 5px 0px;
         color: #666;
+        height: auto;
 
         >*{
             padding: 0px 5px;   
@@ -68,10 +69,8 @@
         }
 
         input{
-            width: 20%;
             height: 30px;
-            line-height: 30px;
-            margin-left: 10px;            
+            line-height: 30px;           
         }
 
         /*收货人、联系电话*/
@@ -79,15 +78,30 @@
             list-style: none;
             display: -webkit-flex;
             display: flex; 
-            margin: 10px 0px 0px 0px;
-            padding: 5px 20px;       
+            margin: 10px 0px 0px 0px; 
+            padding: 0px;
             
             li{
                 width: 50%;
                 height: 30px;
+                line-height: 30px;
+                margin: 0px;
+                padding: 0px 10px;
+                display: -webkit-flex;
+                display: flex; 
+
+                span{
+                    width: 40px;
+                    min-width: 40px;
+                    display: inline-block;
+                    text-align: center;
+                }
 
                 input{
-                    width: 120px;
+                    display: block;
+                    width: -moz-calc(100% - 40px);
+                    width: -webkit-calc(100% - 40px);
+                    width: calc(100% - 40px);
                 }
 
                 &:first-child{
@@ -102,13 +116,26 @@
 
         /*详细地址*/
         .addr-street{
-            padding: 15px 20px;       
-            text-align: right;
+            height: 60px;
+            line-height: 30px;
+            margin: 0px;
+            text-align: left;
+            display: -webkit-flex;
+            display: flex; 
+            padding: 15px 10px;   
+
+            span{
+                width: 40px;
+                min-width: 40px;
+                display: inline-block;
+                text-align: center;
+            }
 
             input{
-                width: -moz-calc(100% - 54px);
-                width: -webkit-calc(100% - 54px);
-                width: calc(100% - 54px);
+                display: block;
+                width: -moz-calc(100% - 40px);
+                width: -webkit-calc(100% - 40px);
+                width: calc(100% - 40px);
             }
         }
     }
