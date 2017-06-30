@@ -27,7 +27,7 @@ let vm = new Vue({
 // 路由过滤器
 router.beforeEach((to, from, next) => {
     window.scroll(0, 0);
-
+    
     // 需要登录的页面检测当前是否登录
     let currentUser = security.getCurrentUser();
     if (!currentUser && to.name == 'order_confirm') {

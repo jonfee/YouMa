@@ -34,6 +34,9 @@ export default {
         }
     },
     created() {
+        //页面title
+        document.title = info.title;
+
         this.user = security.getCurrentUser();
 
         // 登录注册页面不显示用户Logo
@@ -41,13 +44,18 @@ export default {
     },
     computed: {
         config: function () {
-            return {
+            var data = {
                 title: this.info.title || _defInfo.title,
                 backtext: this.info.backtext || _defInfo.backtext,
                 backlink: this.info.backlink || _defInfo.backlink,
                 noback: this.info.noback || _defInfo.noback,
                 hide: this.info.hide || _defInfo.hide
-            }
+            };
+
+            //设置页面 title
+            document.title = data.title;
+
+            return data;
         },
         avatar() {
             return this.user ? '/static/icons/loginUser.ico' : '/static/icons/unloginUser.ico';
@@ -69,7 +77,7 @@ export default {
         }
     },
     watch: {
-        "info": {
+        info: {
             handler(newVal, oldVal) {
                 this.user = security.getCurrentUser();
 
