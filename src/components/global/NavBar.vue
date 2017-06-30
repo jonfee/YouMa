@@ -1,14 +1,12 @@
 <template>
-    <section v-if="!config.hide" class="m-header is-bg is-fixed">
+    <section v-if="!navinfo.hide" class="m-header is-bg is-fixed">
         <div class="m-header-button is-left">
-            <router-link v-if="!config.noback" :to="config.backlink">{{ config.backtext }}</router-link>
+            <router-link v-if="!navinfo.noback" :to="navinfo.backlink">{{ navinfo.backtext }}</router-link>
         </div>
-        <h1 class="m-header-title" v-text="config.title"></h1>
+        <h1 class="m-header-title" v-text="navinfo.title"></h1>
         <div class="m-header-button is-right">
-            <a href="javascript:;" style="display:none;">分享</a>
-        </div>
-        <div class="userInfo" v-show="isShowAvatar" @click="onAvtarClick">
-            <img :src='avatar'>
+            <a href="javascript:;">{{ user.name }}</a>
+            <img :src='user.avatar'>
         </div>
     </section>
 </template>
@@ -26,43 +24,30 @@ import security from './../../utils/security';
 var _defInfo = { title: '优码商城', backtext: '〈 返回', backlink: '/', noback: false, hide: false, };
 
 export default {
-    props: {
-        info: {
-            required: true,
-            type: Object,
-            default: _defInfo
-        }
-    },
-    created() {
-        
-        this.user = security.getCurrentUser();
+    props: ['info'],
+    created() {        
+        //登录用户信息
+        this.user.name = security.getCurrentUser();
 
-        // 登录注册页面不显示用户Logo
-        this.isShowAvatar = (this.info && this.info.title != '用户登录' && this.info.title != '新用户注册');
-    },
-    computed: {
-        config: function () {
-            var data = {
+        //顶部导航
+        this.navinfo = {
                 title: this.info.title || _defInfo.title,
                 backtext: this.info.backtext || _defInfo.backtext,
                 backlink: this.info.backlink || _defInfo.backlink,
                 noback: this.info.noback || _defInfo.noback,
                 hide: this.info.hide || _defInfo.hide
-            };
+        };
 
-            //设置页面 title
-            document.title = data.title;
-
-            return data;
-        },
-        avatar() {
-            return this.user ? '/static/icons/loginUser.ico' : '/static/icons/unloginUser.ico';
-        }
+        //设置页面 title
+        document.title = this.navinfo.title;
     },
     data() {
         return {
-            isShowAvatar: false, // 是否显示头像
-            user: null
+            navinfo: _defInfo,
+            user: {
+                avatar: '/static/imgs/user.png',
+                name: null
+            }
         }
     },
     methods: {
@@ -75,7 +60,7 @@ export default {
         }
     },
     watch: {
-        info: {
+        navinfo: {
             handler(newVal, oldVal) {
                 this.user = security.getCurrentUser();
 
