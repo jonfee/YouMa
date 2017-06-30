@@ -34,9 +34,7 @@ export default {
         }
     },
     created() {
-        //页面title
-        document.title = info.title;
-
+        
         this.user = security.getCurrentUser();
 
         // 登录注册页面不显示用户Logo
