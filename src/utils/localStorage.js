@@ -32,9 +32,11 @@ let deserialize = function(value) {
 
 let storage = {
     set: function(key, value) {
+
+        if (!val&&!key) { return this.remove(key) ;}
         evenStorage("set", key, value);
 
-        if (key && !isJSON(key)) {
+        if (key && value && !isJSON(key)) {
             localStorage.setItem(key, serialize(value));
         } else if (key && isJSON(key) && !value) {
             for (let k in key) {

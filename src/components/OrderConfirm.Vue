@@ -8,7 +8,7 @@
             </div>
             <ul class="addr-linkman">
                 <li><span>姓名</span><input type="text" /></li>
-                <li><span>电话</span><input type="text" /></li>
+                <li><span>电话</span><input type="tel" /></li>
             </ul>
             <div class="addr-street">
                 <span>地址</span><input type="text" />
@@ -42,6 +42,8 @@
 
 // 引入全局配置文件
 import {global} from './../../static/global'
+//引入localStorage操作类
+import { storage as Storage } from './../utils/localStorage'
 // 引入样式
 import './../assets/sass/views/order-confirm.scss'
 
