@@ -36,21 +36,25 @@ export default {
         }
     },
     getCurrentUser() {
+
+        const defNull = { 'username': '' };
+
         var arr, reg = new RegExp("(^| )" + loginUserCookieKey + "=([^;]*)(;|$)");
         if (arr = document.cookie.match(reg)) {
 
             let userCookie = unescape(arr[2]);
 
             let user = deserialize(userCookie);
+            
             if (user) {
                 this.setCurrentUser(user); //重新续约当前登录用户
 
                 return user;
             }
 
-            return null;
+            return defNull;
         } else
-            return null;
+            return defNull;
     }
 
 }

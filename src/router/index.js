@@ -10,6 +10,8 @@ import Home from '@/components/Home'
 import Login from '@/components/Login'
 //用户注册组件
 import Register from '@/components/Register'
+//用户注册组件
+import UserCenter from '@/components/UserCenter'
 //订单确认
 import OrderConfirm from '@/components/OrderConfirm'
 //支付方式选择
@@ -52,11 +54,14 @@ const routers =[
             title: '用户注册'
         }
     },
-    //用户默认
+    //用户中心
     {
-        name: 'user_default', 
-        path: '/user', 
-        redirect: '/user/login'
+        name: 'user', 
+        path: '/user/center', 
+        component: UserCenter,
+        meta:{
+            title: '用户中心'
+        }
     },
     //分类列表
     {

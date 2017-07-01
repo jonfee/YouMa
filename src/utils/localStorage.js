@@ -33,7 +33,7 @@ let deserialize = function(value) {
 let storage = {
     set: function(key, value) {
 
-        if (!val&&!key) { return this.remove(key) ;}
+        if (!value&&!key) { return this.remove(key) ;}
         evenStorage("set", key, value);
 
         if (key && value && !isJSON(key)) {
