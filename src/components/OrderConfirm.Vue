@@ -4,14 +4,14 @@
         <section class="address">
             <div class="addr-title">
                 <span>寄送至：</span>
-                <span>更多地址请选择&nbsp;〉</span>
+                <span @click="useLastAddress">使用上次收件地址&nbsp;〉</span>
             </div>
             <ul class="addr-linkman">
-                <li><span>姓名</span><input type="text" /></li>
-                <li><span>电话</span><input type="tel" /></li>
+                <li><span>姓名</span><input type="text" v-model="address_linkman" /></li>
+                <li><span>电话</span><input type="text" v-model="address_tel" /></li>
             </ul>
             <div class="addr-street">
-                <span>地址</span><input type="text" />
+                <span>地址</span><input type="text" v-model="address_street" />
             </div>
         </section>
         <!--购买清单-->
@@ -34,7 +34,7 @@
             <div class="total-amount"><span>总计</span><span>￥{{ totalAmount }}</span></div>
         </section>
         <!--操作-->
-        <section class="form-action" @click="submit">提交订单</section>
+        <div class="form-action" @click="onSubmit">提交订单</div>
     </div>
 </template>
 
@@ -42,8 +42,10 @@
 
 // 引入全局配置文件
 import {global} from './../../static/global'
-//引入localStorage操作类
-import { storage as Storage } from './../utils/localStorage'
+//引入收货地址操作类
+import addressUtil from './../utils/address'
+//引入登录状态/安全操作类
+import security from './../utils/security'
 // 引入样式
 import './../assets/sass/views/order-confirm.scss'
 
@@ -57,10 +59,22 @@ export default{
             //当前商品
             product: null,
             //购买数，默认为 1
-            buyNumber: 1
+            buyNumber: 1,
+            address_linkman: '',
+            address_tel: '',
+            address_street: ''
         }
     },
     props: ['setnav'],
+    beforeCreate: function(){
+        var islogin = security.isLogin();
+
+        if(!islogin){
+            this.$router.push({
+                name: 'login'
+            })
+        }
+    },
     created: function(){
         // 商品ID
         var productId = this.$route.query.pid;
@@ -92,18 +106,55 @@ export default{
             return global.Products.filter(item=>item.Id  == productId)[0];
         },
 
+        /**
+        * 使用上次使用过的地址
+        */
+        useLastAddress: function(){
+            var _address = addressUtil.getLast();
+            if(_address){
+                this.address_linkman = _address.linkman;
+                this.address_tel = _address.tel;
+                this.address_street = _address.street;
+            }
+        },
 
         /**
-        *   立即购买
+        * 生成订单编号
         */
-        submit: function(){
-            this.$router.push({
-                name: 'order_confirm',
-                query: {
-                    pid: this.product.Id,
-                    num: this.buyNumber
-                }
-            })
+        generateCode: function(){
+            var date = new Date();
+            return date.getTime();
+        },
+
+        /**
+        *   提交订单
+        */
+        onSubmit: function(){
+            if(this.address_linkman.trim() == ''){
+                alert('收货人姓名不能为空');
+            } 
+            else if(this.address_tel.trim() == '') {
+                alert('收货人联系电话不能空');
+            }else if(this.address_street.trim() == ''){
+                alert(this.address.stree);
+            }else{
+                var _address = {
+                    linkman : this.address_linkman,
+                    tel: this.address_tel,
+                    street: this.address_street
+                };
+
+                //数据检验成功，则存入本地缓存
+                addressUtil.save(_address)
+
+                this.$router.push({
+                    name: 'payment_choose',
+                    query: {
+                        code: this.generateCode(),
+                        amount: this.totalAmount
+                    }
+                })
+            }
         }
     }
 }

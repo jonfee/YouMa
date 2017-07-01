@@ -44,7 +44,7 @@ export default {
             //导航信息
             navinfo:{
                 title: '优码商城',
-                backlink: '',
+                backlink: '/',
                 backtext: '',
                 noback: true
             },
