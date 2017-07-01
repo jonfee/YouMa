@@ -30,9 +30,9 @@ export default {
     setCurrentUser(user) {
         if (user && isJSON(user)) {
             // 设置当前登录用户的Cookie
-            document.cookie = `${loginUserCookieKey}=${serialize(user)}; max-age=${maxage}; `
+            document.cookie = `${loginUserCookieKey}=${serialize(user)}; max-age=${maxage}; path=/ `
         } else if (user && !isJSON(user)) {
-            document.cookie = `${loginUserCookieKey}=${user}; max-age=${maxage}; `
+            document.cookie = `${loginUserCookieKey}=${user}; max-age=${maxage}; path=/`
         }
     },
     getCurrentUser() {
@@ -45,7 +45,7 @@ export default {
             let userCookie = unescape(arr[2]);
 
             let user = deserialize(userCookie);
-            
+
             if (user) {
                 this.setCurrentUser(user); //重新续约当前登录用户
 
@@ -54,7 +54,7 @@ export default {
 
             return defNull;
         } else
-            return  defNull;
+            return defNull;
     }
 
 }
