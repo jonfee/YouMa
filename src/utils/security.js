@@ -55,6 +55,10 @@ export default {
             return defNull;
         } else
             return defNull;
-    }
+    },
+    isLogin(){
+        var user = this.getCurrentUser();
 
+        return user.username != '';
+    }
 }

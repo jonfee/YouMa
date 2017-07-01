@@ -42,8 +42,10 @@
 
 // 引入全局配置文件
 import {global} from './../../static/global'
-//引入localStorage操作类
+//引入收货地址操作类
 import addressUtil from './../utils/address'
+//引入登录状态/安全操作类
+import security from './../utils/security'
 // 引入样式
 import './../assets/sass/views/order-confirm.scss'
 
@@ -64,6 +66,15 @@ export default{
         }
     },
     props: ['setnav'],
+    beforeCreate: function(){
+        var islogin = security.isLogin();
+
+        if(!islogin){
+            this.$router.push({
+                name: 'login'
+            })
+        }
+    },
     created: function(){
         // 商品ID
         var productId = this.$route.query.pid;

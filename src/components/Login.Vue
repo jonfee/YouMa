@@ -60,7 +60,7 @@ export default {
 
             // 从localStorage中查询当前用户
             let dbUser = Storage.get(this.user.username);
-            console.log(dbUser);
+
             if (!dbUser) {
                 alert('账号不存在,请先注册！');
                 return;
