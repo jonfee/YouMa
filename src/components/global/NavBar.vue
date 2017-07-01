@@ -1,14 +1,11 @@
 <template>
-    <section v-if="!config.hide" class="m-header is-bg is-fixed">
+    <section v-if="!navinfo.hide" class="m-header is-bg is-fixed">
         <div class="m-header-button is-left">
-            <router-link v-if="!config.noback" :to="config.backlink">{{ config.backtext }}</router-link>
+            <router-link v-if="!navinfo.noback" :to="navinfo.backlink">{{ navinfo.backtext }}</router-link>
         </div>
-        <h1 class="m-header-title" v-text="config.title"></h1>
+        <div class="m-header-button m-header-title" v-text="navinfo.title"></div>
         <div class="m-header-button is-right">
-            <a href="javascript:;" style="display:none;">分享</a>
-        </div>
-        <div class="userInfo" v-show="isShowAvatar" @click="onAvtarClick">
-            <img :src='avatar'>
+            <router-link :to="user.link">{{ user.displayText }}</router-link>
         </div>
     </section>
 </template>
@@ -22,69 +19,64 @@ import security from './../../utils/security';
 *       2、当传递的数据对象中某值为null时，将使用默认信息，同上。
 */
 
-//默认导航信息
-var _defInfo = { title: '优码商城', backtext: '〈 返回', backlink: '/', noback: false, hide: false, };
-
 export default {
-    props: {
-        info: {
-            required: true,
-            type: Object,
-            default: _defInfo
-        }
-    },
-    created() {
-        
-        this.user = security.getCurrentUser();
-
-        // 登录注册页面不显示用户Logo
-        this.isShowAvatar = (this.info && this.info.title != '用户登录' && this.info.title != '新用户注册');
-    },
-    computed: {
-        config: function () {
-            var data = {
-                title: this.info.title || _defInfo.title,
-                backtext: this.info.backtext || _defInfo.backtext,
-                backlink: this.info.backlink || _defInfo.backlink,
-                noback: this.info.noback || _defInfo.noback,
-                hide: this.info.hide || _defInfo.hide
-            };
-
-            //设置页面 title
-            document.title = data.title;
-
-            return data;
-        },
-        avatar() {
-            return this.user ? '/static/icons/loginUser.ico' : '/static/icons/unloginUser.ico';
-        }
-    },
     data() {
         return {
-            isShowAvatar: false, // 是否显示头像
-            user: null
+            user: {}
         }
     },
+    props: ['info'],
+    computed:{
+        navinfo: function(){
+            return {
+                title: this.info.title || '优码商城',
+                backtext: this.info.backtext || '〈 返回',
+                backlink: this.info.backlink || '/',
+                noback: this.info.noback || false,
+                hide: this.info.hide || false
+            };
+        }
+    },
+    created: function(){
+        //设置页面title
+        document.title = this.$route.meta.title;
+        this.user = this.getUser();
+    },
     methods: {
-        onAvtarClick() {
-            if (this.user) {
-                console.log('个人中心');
-            } else {
-                this.$router.push('user/login');
+        getUser: function(){
+            //登录用户名
+            var _user = security.getCurrentUser();
+
+            //显示文字
+            var disText = _user.username;
+            //链接
+            var link = '/user/center';
+
+            if(disText == ''){
+                //获取路由名
+                var routeName = this.$route.name;
+                if(routeName == 'login'){
+                    disText = '注册';
+                    link = '/user/register';
+                }else{
+                    disText = '登录';
+                    link = '/user/login';
+                }
+            }
+
+            return {
+                name: _user.username,
+                displayText: disText,
+                link: link
             }
         }
     },
     watch: {
-        info: {
-            handler(newVal, oldVal) {
-                this.user = security.getCurrentUser();
-
-                // 登录注册页面不显示用户Logo
-                this.isShowAvatar = (newVal.title != '用户登录' && newVal.title != '新用户注册');
-            }
-
+        navinfo: function()
+        {
+            //绑定用户信息
+            this.user = this.getUser();
         }
-
     }
 }
 </script>
@@ -104,35 +96,39 @@ export default {
     padding: 0 10px;
     background: @headerBg;
     color: @headerDefaultColor;
-    border-bottom: 1px solid #eee;
+    display: -webkit-fixed;
+    display: fixed;
+
     a {
         color: @headerDefaultColor;
+        font-size: 14px;
     }
-    .m-header-button {
-        width: 70px;
-        align-items: stretch;
-        &.is-left {
+
+    .m-header-button{
+        height: 100%;
+        line-height: 44px;
+
+        &.is-left{
+            width: 20%;
             text-align: left;
         }
-        &.is-right {
+        
+        &.m-header-title {
+            width: 60%;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        &.is-right{
+            width: 20%;
             text-align: right;
         }
-        .m-icon-img {
-            width: 20px;
-            height: 20px;
-        }
-        .margin-right-10 {
-            margin-right: 10px;
-        }
-    }
-    .m-header-title {
-        flex: 1;
-        text-align: center;
-        font-size: 16px;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-    }
+    }  
+    
     &.is-bg {
         background: @headerBg;
         color: #fff;
@@ -149,10 +145,6 @@ export default {
         right: 0;
         top: 0;
         z-index: 9;
-    }
-    .userInfo {
-        width: 30px;
-        height: 30px;
     }
 }
 </style>

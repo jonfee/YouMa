@@ -64,13 +64,15 @@
                 &:last-child{
                     font-size: 14px;
                     text-align: right;
+                    color: #ff9900;
                 }
             }            
         }
 
         input{
             height: 30px;
-            line-height: 30px;           
+            line-height: 30px;   
+            text-indent: 2px;        
         }
 
         /*收货人、联系电话*/

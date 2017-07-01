@@ -30,8 +30,10 @@ router.beforeEach((to, from, next) => {
     
     // 需要登录的页面检测当前是否登录
     let currentUser = security.getCurrentUser();
+
     if (!currentUser && to.name == 'order_confirm') {
         next({ name: 'login' })
-    } else
+    } else{
         next();
+    }
 });
