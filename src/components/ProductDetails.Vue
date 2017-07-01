@@ -1,5 +1,5 @@
 <template>
-    <div id="container">
+    <div class="product-details-container">
         <!--商品展示图-->
         <section class="product-pic">
             <img :src="product.Picture" />

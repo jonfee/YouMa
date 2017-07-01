@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="home-container">
         <!--Banner展示区域-->
         <section class="top-banner-box">
             <img src="/static/imgs/ad/home_01.png" />

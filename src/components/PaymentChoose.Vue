@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="payment-container">
     
         <section class="head">
             <p>支付剩余时间</p>
