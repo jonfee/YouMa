@@ -47,9 +47,6 @@ export default {
             //登录用户名
             var _user = security.getCurrentUser();
 
-            //输出登录名***测试时使用
-            console.log('登录名：'+_user.username);
-
             //显示文字
             var disText = _user.username;
             //链接
