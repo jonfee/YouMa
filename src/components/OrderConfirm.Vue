@@ -52,10 +52,6 @@ import './../assets/sass/views/order-confirm.scss'
 export default{
     data() {
         return {
-            //导航信息
-            navinfo:{
-                title: '确认订单'
-            },
             //当前商品
             product: null,
             //购买数，默认为 1
@@ -63,16 +59,6 @@ export default{
             address_linkman: '',
             address_tel: '',
             address_street: ''
-        }
-    },
-    props: ['setnav'],
-    beforeCreate: function(){
-        var islogin = security.isLogin();
-
-        if(!islogin){
-            this.$router.push({
-                name: 'login'
-            })
         }
     },
     created: function(){
@@ -83,9 +69,6 @@ export default{
         var num = this.$route.query.num;
         if(num < 1) num+=1;
         this.buyNumber = num;
-        
-        //设置导航信息
-        this.$emit('setnav',this.navinfo);   
 
         //默认加载上次使用过的地址
         this.useLastAddress();

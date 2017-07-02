@@ -44,24 +44,15 @@ import './../assets/sass/views/product_details.scss'
 export default{
     data() {
         return {
-            //导航信息
-            navinfo:{
-                title: '商品详情',
-                backlink: '/product/categories'
-            },
             //当前商品
             product: null,
             //购买数，默认为 1
             buyNumber: 1
         }
     },
-    props: ['setnav'],
     created: function(){
         // 商品ID
         var productId = this.$route.query.id;
-        
-        //设置导航信息
-        this.$emit('setnav',this.navinfo);   
 
         //当前商品信息
         this.product = this.getProduct(productId);

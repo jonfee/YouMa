@@ -2,7 +2,7 @@
     <div class="category-data">
         <ul>
             <li v-for="cate in categories" @click="goCategoryProducts(cate.Id)">
-                <div :class="cate.Picture"></div>
+                <div :class="cate.PictureClass"></div>
                 <p class="category-name">{{ cate.Name }}</p>
                 <p class="category-info">
                     共&nbsp;{{ cate.ProductCount }}&nbsp;件商品
@@ -22,20 +22,11 @@ import './../assets/sass/views/categories.scss'
 export default {
     data() {
         return {
-            //导航信息
-            navinfo:{
-                title: '全部分类'
-            },
             //所有商品分类
             categories: null
         }
     },
-    props: ['setnav'],
     created: function(){
-
-        //设置导航信息
-        this.$emit('setnav',this.navinfo);   
-
         //所有商品分类
         this.categories = global.Categories;
     },

@@ -35,18 +35,8 @@ export default {
             user: {
                 username: '',
                 password: ''
-            },
-            navinfo: {
-                title: '用户登录',
-                backlink: '/index',
-                backtext: ''
             }
         }
-    },
-    props: ['setnav'],
-    created: function () {
-        //设置导航信息
-        this.$emit('setnav', this.navinfo);
     },
     methods: {
         login() {

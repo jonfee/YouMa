@@ -1,11 +1,11 @@
 <template>
     <section v-if="!navinfo.hide" class="m-header is-bg is-fixed">
         <div class="m-header-button is-left">
-            <router-link v-if="!navinfo.noback" :to="navinfo.backlink">{{ navinfo.backtext }}</router-link>
+            <a href="javascript:;" v-if="!navinfo.noback" @click="goBack">{{ navinfo.backtext }}</a>
         </div>
         <div class="m-header-button m-header-title" v-text="navinfo.title"></div>
         <div class="m-header-button is-right">
-            <router-link v-show="navinfo.showUser" :to="user.link">{{ user.displayText }}</router-link>
+            <router-link v-show="navinfo.user.show" :to="navinfo.user.link">{{ navinfo.user.displayText }}</router-link>
         </div>
     </section>
 </template>
@@ -15,37 +15,57 @@ import security from './../../utils/security';
 /**
 *   导航组件所需要的数据对象
 *   特别声明：
-*       1、当传递的数据对象为null时，将使用默认信息（_defInfo变量）；
-*       2、当传递的数据对象中某值为null时，将使用默认信息，同上。
+*       1、首页 时，没有“返回”按钮
+*       2、用户中心，不显示登录用户信息
+*       3、返回操作，默认为 this.$router.go(-1)，即返回上一个路由
 */
-
 export default {
-    data() {
-        return {
-            user: {}
-        }
-    },
-    props: ['info'],
-    computed:{
-        navinfo: function(){
-            var _showUser = this.info.showUser;
-            if(_showUser === undefined){
-                _showUser = true;
-            }
-            return {
-                title: this.info.title || '优码商城',                   //导航标题
-                backtext: '〈 ' + (this.info.backtext || '返回'),      //返回按钮文字 
-                backlink: this.info.backlink || '/',                    //返回的链接
-                noback: this.info.noback || false,                      //是否需要返回铵钮
-                hide: this.info.hide || false,                          //是否隐藏整个导航条
-                showUser: _showUser                                     //是否显示登录用户信息
-            };
+    data(){
+        return{
+            navinfo: {}
         }
     },
     created: function(){
-            this.bindData();
+        this.update();
     },
-    methods: {
+    watch:{
+        '$route': function(){
+            this.update();
+        }
+    },
+    
+    methods:{
+        update: function(){
+            //获取当前路由的导航信息
+            var nav = this.$route.meta.nav;
+
+            //获取用户信息
+            var _user = this.getUser();
+            
+            //导航标题
+            var title = nav.title;
+
+            //是否显示登录用户
+            var showUser= nav.showUser;
+            if(showUser === undefined) showUser = true; 
+
+            //指定导航信息
+            this.navinfo = {
+                title: title || '优码商城',                   //导航标题
+                backtext: '〈' + nav.backtext,                   //返回按钮文字 
+                noback: nav.noback || false,                      //是否需要返回铵钮
+                hide: nav.hide || false,                          //是否隐藏整个导航条
+                user: {
+                    show: showUser,                             //是否显示登录用户信息
+                    displayText: _user.displayText,             //显示的用户信息
+                    link: _user.link                            //用户链接地址
+                }                       
+            };
+
+            //设置页面title
+            document.title = this.navinfo.title;
+        },
+
         /*获取用户信息*/
         getUser: function(){
             //登录用户名
@@ -57,9 +77,7 @@ export default {
             var link = '/user/center';
 
             if(disText == ''){
-                //获取路由名
-                var routeName = this.$route.name;
-                if(routeName == 'login'){
+                if(this.$route.name == 'login'){
                     disText = '注册';
                     link = '/user/register';
                 }else{
@@ -67,25 +85,12 @@ export default {
                     link = '/user/login';
                 }
             }
-            
-            return {
-                name: _user.username,
-                displayText: disText,
-                link: link
-            }
+            return { displayText: disText, link: link};
         },
-        /*绑定数据*/
-        bindData: function(){
-            //设置页面title
-            document.title = this.$route.meta.title;
-            //绑定用户信息
-            this.user = this.getUser();
-        }
-    },
-    watch: {
-        navinfo: function()
-        {
-            this.bindData();
+
+        /** 后退/返回**/
+        goBack: function(){
+            this.$router.go(-1);
         }
     }
 }

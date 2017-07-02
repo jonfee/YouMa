@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <!--顶部导航组件-->
-    <navbar :info="navinfo"></navbar>
-    <router-view @setnav="setNav"></router-view>
+    <navbar :title="navTitle"></navbar>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -15,13 +15,7 @@ export default {
   name: 'app',
   data(){
     return {
-      navinfo: {}   //导航信息
-    }
-  },
-  methods:{
-    //设置导航信息
-    setNav(info){
-      this.navinfo = info;
+      navTitle: ''
     }
   },
   components:{ navbar }

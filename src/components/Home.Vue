@@ -8,7 +8,7 @@
         <section class="nav-menu-box">
             <ul>
                 <li v-for="cate in recommandCategories" @click="goCategoryProducts(cate.Id)">
-                    <div class="menu-icon" :class="'cate-icon-'+cate.Id"></div>
+                    <div class="menu-icon" :class="cate.IconClass"></div>
                     <span>{{ cate.Name }}</span>
                 </li>
                 <li @click="goCategories">
@@ -41,13 +41,6 @@ import product_list from '@/components/global/productlist'
 export default {
     data() {
         return {
-            //导航信息
-            navinfo:{
-                title: '优码商城',
-                backlink: '/',
-                backtext: '',
-                noback: true
-            },
             //所有商品分类
             categories: null,
             //推荐的商品分类
@@ -57,10 +50,7 @@ export default {
         }
     },
     components: { product_list },
-    props: ['setnav'],
     created: function(){
-        //设置导航信息
-        this.$emit('setnav',this.navinfo);   
 
         //所有商品分类
         this.categories = global.Categories;

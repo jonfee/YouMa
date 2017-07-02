@@ -32,8 +32,14 @@ const routers =[
         name: 'home', 
         path: '/index', 
         component: Home,
-        meta:{
-            title: '优码商城'
+        meta:{  
+            nav: {
+                title: '优码商城',      //导航标题
+                backtext: '',           //返回按钮文字 
+                noback: true,           //是否需要返回铵钮
+                hide: false,            //是否隐藏整个导航条
+                showUser: true          //是否显示登录用户信息
+            }
         }
     },
     //登录
@@ -42,7 +48,13 @@ const routers =[
         path: '/user/login', 
         component: Login,
         meta:{
-            title: '用户登录'
+            nav: {
+                title: '用户登录',      //导航标题
+                backtext: '',           //返回按钮文字 
+                noback: false,           //是否需要返回铵钮
+                hide: false,            //是否隐藏整个导航条
+                showUser: true          //是否显示登录用户信息
+            }
         }
     },
     //注册
@@ -51,16 +63,29 @@ const routers =[
         path: '/user/register', 
         component: Register,
         meta:{
-            title: '用户注册'
+            nav: {
+                title: '用户注册',      //导航标题
+                backtext: '',           //返回按钮文字 
+                noback: false,           //是否需要返回铵钮
+                hide: false,            //是否隐藏整个导航条
+                showUser: true          //是否显示登录用户信息
+            }
         }
     },
     //用户中心
     {
-        name: 'user', 
+        name: 'user_center', 
         path: '/user/center', 
         component: UserCenter,
         meta:{
-            title: '用户中心'
+            mustLogin: true,
+            nav: {
+                title: '用户中心',      //导航标题
+                backtext: '',           //返回按钮文字 
+                noback: false,           //是否需要返回铵钮
+                hide: false,            //是否隐藏整个导航条
+                showUser: true          //是否显示登录用户信息
+            }
         }
     },
     //分类列表
@@ -69,7 +94,13 @@ const routers =[
         path: '/product/categories', 
         component: Categories,
         meta:{
-            title: '全部分类'
+            nav: {
+                title: '全部分类',      //导航标题
+                backtext: '',           //返回按钮文字 
+                noback: false,           //是否需要返回铵钮
+                hide: false,            //是否隐藏整个导航条
+                showUser: true          //是否显示登录用户信息
+            }
         }
     },
     //分类商品列表
@@ -78,7 +109,13 @@ const routers =[
         path: '/product/category', 
         component: CategoryProducts,
         meta:{
-            title: '分类商品'
+            nav: {
+                title: '分类商品',      //导航标题
+                backtext: '',           //返回按钮文字 
+                noback: false,           //是否需要返回铵钮
+                hide: false,            //是否隐藏整个导航条
+                showUser: true          //是否显示登录用户信息
+            }
         }
     },
     //商品搜索结果
@@ -87,7 +124,13 @@ const routers =[
         path: '/product/search', 
         component: SearchResult,
         meta:{
-            title: '搜索结果'
+            nav: {
+                title: '搜索结果',      //导航标题
+                backtext: '',           //返回按钮文字 
+                noback: false,           //是否需要返回铵钮
+                hide: false,            //是否隐藏整个导航条
+                showUser: true          //是否显示登录用户信息
+            }
         }
     },
     //商品详情
@@ -96,7 +139,13 @@ const routers =[
         path: '/product/details', 
         component: ProductDetails,
         meta:{
-            title: '商品详情'
+            nav: {
+                title: '商品详情',      //导航标题
+                backtext: '',           //返回按钮文字 
+                noback: false,           //是否需要返回铵钮
+                hide: false,            //是否隐藏整个导航条
+                showUser: true          //是否显示登录用户信息
+            }
         }
     },
     //订单确认
@@ -105,7 +154,14 @@ const routers =[
         path: '/order/confirm', 
         component: OrderConfirm,
         meta:{
-            title: '确认订单'
+            mustLogin: true,
+            nav: {
+                title: '确认订单',      //导航标题
+                backtext: '',           //返回按钮文字 
+                noback: false,           //是否需要返回铵钮
+                hide: false,            //是否隐藏整个导航条
+                showUser: true          //是否显示登录用户信息
+            }
         }
     },
     //支付方式选择
@@ -114,7 +170,14 @@ const routers =[
         path: '/order/payment', 
         component: PaymentChoose,
         meta:{
-            title: '选择支付方式'
+            mustLogin: true,
+            nav: {
+                title: '选择支付方式',      //导航标题
+                backtext: '',           //返回按钮文字 
+                noback: false,           //是否需要返回铵钮
+                hide: false,            //是否隐藏整个导航条
+                showUser: true          //是否显示登录用户信息
+            }
         }
     },
     //默认
