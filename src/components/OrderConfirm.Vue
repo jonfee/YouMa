@@ -1,10 +1,10 @@
 <template>
-    <div id="order-confirm">
+    <div class="order-confirm">
         <!--收货地址-->
         <section class="address">
             <div class="addr-title">
                 <span>寄送至：</span>
-                <span @click="useLastAddress">使用上次收件地址&nbsp;〉</span>
+                <span @click="useLastAddress" v-show="false">使用上次收件地址&nbsp;〉</span>
             </div>
             <ul class="addr-linkman">
                 <li><span>姓名</span><input type="text" v-model="address_linkman" /></li>
@@ -86,6 +86,9 @@ export default{
         
         //设置导航信息
         this.$emit('setnav',this.navinfo);   
+
+        //默认加载上次使用过的地址
+        this.useLastAddress();
 
         //当前商品信息
         this.product = this.getProduct(productId);
