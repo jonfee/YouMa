@@ -56,7 +56,7 @@ const routers =[
     },
     //用户中心
     {
-        name: 'user', 
+        name: 'user_center', 
         path: '/user/center', 
         component: UserCenter,
         meta:{

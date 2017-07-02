@@ -44,15 +44,6 @@ export default{
         }
     },
     props: ['setnav'],
-    beforeCreate: function(){
-        var islogin = security.isLogin();
-
-        if(!islogin){
-            this.$router.push({
-                name: 'login'
-            })
-        }
-    },
     created: function(){
         //设置导航信息
         this.$emit('setnav',this.navinfo);

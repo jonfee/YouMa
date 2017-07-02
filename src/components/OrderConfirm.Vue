@@ -66,15 +66,6 @@ export default{
         }
     },
     props: ['setnav'],
-    beforeCreate: function(){
-        var islogin = security.isLogin();
-
-        if(!islogin){
-            this.$router.push({
-                name: 'login'
-            })
-        }
-    },
     created: function(){
         // 商品ID
         var productId = this.$route.query.pid;
