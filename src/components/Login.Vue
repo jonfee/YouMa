@@ -6,16 +6,16 @@
     
         <div class="form">
             <form>
-                <div class="username">
+                <div class="formitem">
                     <i class="icon"></i>
                     <input class="input" type="text" v-model="user.username" placeholder="请输入您的登录账号">
                 </div>
-                <div class="password">
+                <div class="formitem">
                     <i class="icon"></i>
                     <input class="input" type="password" v-model="user.password" placeholder="请输入您的登录密码">
                 </div>
-                <input type="button" value="登录" class="input button" @click="login">
-                <p class="input tip">还没有账号？赶快去
+                <input type="button" value="登录" class="formitem button" @click="login">
+                <p class="formitem tip">还没有账号？赶快去
                     <router-link :to="{name:'register'}">&nbsp;注册&nbsp;</router-link>吧</p>
             </form>
         </div>
