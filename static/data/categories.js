@@ -1,14 +1,13 @@
 /*
-*   初始化商品分类信息
-*/
-const categories=[
-    {
+ *   初始化商品分类信息
+ */
+const categories = [{
         "Name": "益智玩具",
         "Id": 1,
         "Icon": "cate-icon-1",
         "Picture": "cate-pic-1",
         "IsRecommend": true,
-        "ProductCount": 20
+        "ProductCount": 10
     },
     {
         "Name": "数码配件",
@@ -16,7 +15,7 @@ const categories=[
         "Icon": "cate-icon-2",
         "Picture": "cate-pic-2",
         "IsRecommend": true,
-        "ProductCount": 6
+        "ProductCount": 10
     },
     {
         "Name": "国际品牌",
@@ -24,7 +23,7 @@ const categories=[
         "Icon": "cate-icon-3",
         "Picture": "cate-pic-3",
         "IsRecommend": true,
-        "ProductCount": 18
+        "ProductCount": 11
     }
 ]
 
