@@ -128,9 +128,10 @@ ul.columns-one{
             
             >span{
                 &.product-name{
-                    padding: 10px 0px;
+                    padding: 8px 0px;
                     height: 50%;
                     font-size: 14px;
+                    text-overflow: hidden;
                 }
 
                 &.product-category{
