@@ -3,13 +3,13 @@
         <section class="info">
             <p>亲爱的 <span class="username">{{ user.username }}</span>，{{ message }}!</p>
         </section>
-        <section class="address">
+        <section class="address" v-if="address!=null">
             <div class="addr-tip">最近使用过的收货地址</div>
-            <div class="addr-info">
-                <p>收货人：{{ address.linkman }}</p>
-                <p>电话：{{ address.tel }}</p>
-                <p>收货地址：{{ address.street }}</p>
-            </div>
+            <ul class="addr-info">
+                <li><span class="tip">收货人</span><span class="val">{{ address.linkman }}</span></li>
+                <li><span>联系电话</span><span>{{ address.tel }}</span></li>
+                <li><span>收货地址</span><span>{{ address.street }}</span></li>
+            </ul>
         </section>
         <section class="active">
             <button @click="signout">退出登录</button>
