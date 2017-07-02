@@ -19,6 +19,7 @@
                     <router-link :to="{name:'register'}">&nbsp;注册&nbsp;</router-link>吧</p>
             </form>
         </div>
+    
     </div>
 </template>
 

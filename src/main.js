@@ -7,10 +7,12 @@ import routers from './router';
 import './assets/sass/base/common.scss';
 import security from './utils/security';
 //import './assets/less/color.less';
+import Toast from './components/global/Toast/index'
 
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
+Vue.use(Toast);
 
 const router = new VueRouter({
     mode: 'history',
@@ -27,13 +29,13 @@ let vm = new Vue({
 // 路由过滤器
 router.beforeEach((to, from, next) => {
     window.scroll(0, 0);
-    
+
     // 需要登录的页面检测当前是否登录
     let currentUser = security.getCurrentUser();
 
     if (!currentUser && to.name == 'order_confirm') {
         next({ name: 'login' })
-    } else{
+    } else {
         next();
     }
 });
