@@ -5,10 +5,12 @@ import VueRouter from 'vue-router';
 import App from './App';
 import routers from './router';
 import './assets/sass/base/common.scss';
+import Toast from './components/global/Toast/index'
 
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
+Vue.use(Toast);
 
 const router = new VueRouter({
     mode: 'history',

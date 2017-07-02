@@ -3,7 +3,7 @@
         <div class="logo">
             <img src="/static/imgs/logo.png">
         </div>
-
+    
         <div class="form">
             <form>
                 <div class="username">
@@ -19,9 +19,7 @@
                     <router-link :to="{name:'register'}">&nbsp;注册&nbsp;</router-link>吧</p>
             </form>
         </div>
-        <div class="toast" v-show="false">
-            <img class="icon" src="/static/icons/success.ico"> <span class="msg">提示消息</span>
-        </div>
+    
     </div>
 </template>
 
@@ -37,17 +35,17 @@ export default {
                 username: '',
                 password: ''
             },
-            navinfo:{
-                title:'用户登录',
-                backlink:'/index',
+            navinfo: {
+                title: '用户登录',
+                backlink: '/index',
                 backtext: ''
             }
         }
     },
-    props:['setnav'],
-    created: function(){
+    props: ['setnav'],
+    created: function () {
         //设置导航信息
-        this.$emit('setnav',this.navinfo);
+        this.$emit('setnav', this.navinfo);
     },
     methods: {
         login() {
