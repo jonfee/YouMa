@@ -20,7 +20,7 @@
             <div class="buylist-content">
                 <img :src="product.Picture" />
                 <div class="product-info">
-                    <p class="product-name">{{ product.Name+product.Name+product.Name}}</p>
+                    <p class="product-name">{{ product.Name}}</p>
                     <p class="product-price">
                         <span>￥{{ product.Price }}</span>
                         <span>×{{ buyNumber }}</span>
