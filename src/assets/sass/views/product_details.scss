@@ -1,0 +1,207 @@
+/**
+* =======================
+*   商品详情页相关样式表文件
+* ========================
+*/
+
+@charset 'UTF-8';
+
+.product-details-container{
+    width:100%;
+    height: auto;
+    margin: 0px;
+    padding: 0px;
+    background: #f2f2f2;
+
+    //商品展示图区域样式
+    .product-pic{
+        width: 100%;
+        max-height: 350px;
+        display: -webkit-flex;
+        display: flex;
+
+        img{
+            width: 100%;
+            height: auto;
+            object-fit: conver;
+        }
+    }
+
+    //关键信息区域样式，含：名称、价格、库存、销量等
+    .product-info{
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px 5px;;
+        background: #fff;
+
+        p{
+            margin: 0px;
+            display: block;
+            width: 100%;
+            text-align: left;
+
+            &.product-name{
+                height: 50px;
+                line-height: 20px;
+                font-size: 16px;
+                font-weight: bold;
+                color: #333;
+                line-height: 170%;
+            }
+
+            &.product-price{
+                height: 35px;
+                line-height: 35px;
+                font-size: 14px;
+
+                >span{
+                    font-size: 20px;
+                    color: red;
+                }
+            }
+
+            &.product-sales{
+                height: 35px;
+                line-height: 35px;
+                font-size:14px;
+                color: gray;
+            }
+        }
+    }
+
+    //图文详情区块样式
+    .product-details{
+        
+        width: 100%;
+        height: auto;
+        margin: 10px 0px 50px 0px;
+        padding: 0px 10px;
+        background: #fff;
+
+        .details-tip{
+            display: block;
+            margin: 0px;
+            padding: 0px;
+            text-align: center;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;    
+            letter-spacing: 3px;
+            font-size: 14px;  
+        }
+
+        .content{
+            width: 100%;
+            height: auto;
+            font-size: 14px;
+            color: #333;
+        }
+    }
+
+    //底部购买操作区
+    .product-buy{
+        width: 100%;
+        height: 50px;
+        background: #fff;
+        border-top: 1px solid #ddd;
+        position: fixed;
+        bottom: 0px;
+        display: -webkit-flex;
+        display: flex;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+
+        /*购买数量*/
+        ul.buy-num{
+            width: 100px;
+            height: 30px;
+            margin: 10px 0px 0px 10px;
+            padding: 0px;
+            display: inline-block;
+            list-style: none;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+
+            li{
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                list-style: none;
+                float: left;
+                border: 1px solid #eee;
+                transition: background-color .3s;
+
+                /*减*/
+                &:first-child{
+                    font-size: 18px;
+                    font-weight: bold;
+                    border-top-left-radius: 5px;
+                    border-bottom-left-radius: 5px;
+                    cursor: pointer;
+                }
+
+                /*购买数*/
+                &.input-num{
+                    font-size: 14px;
+                }
+
+                /*加*/
+                &:last-child{
+                    font-size: 18px;
+                    font-weight: bold;
+                    border-top-right-radius: 5px;
+                    border-bottom-right-radius: 5px;
+                    cursor: pointer;
+                }
+
+                &:hover:not(.input-num){
+                    background-color: #eee;
+                }
+            }
+        }
+
+        /*合计金额*/
+        div.total-amount{
+            width: 35%;
+            height: 30px;
+            margin: 10px 0px 10px 10px;
+            padding: 0px;
+            display: inline-block;
+            list-style: none;
+            box-sizing: border-box;
+            line-height: 30px;
+            text-align: left;
+            font-size: 14px;
+            color: #333;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+
+            .amount{
+                color: orange;
+                font-size: 16px;
+            }
+        }
+
+        /*立即购买*/
+        div.buy-submit{
+            width: -moz-calc(100% - 35% - 100px);
+            width: -webkit-calc(100% - 35% - 100px);
+            width: calc(100% - 35% - 100px);   
+            height: 100%;
+            line-height: 50px;   
+            display: inline-block;     
+            background: #67C36F;
+            font-size: 14px;
+            color: #fff;
+            transition: .3s;
+            cursor: pointer;
+
+            &:hover{
+                opacity: 0.8;
+            }
+        }
+    }
+}

@@ -1,0 +1,84 @@
+/**
+*   分类下的商品展示页样式表文件
+*/
+
+@charset 'UTF-8';
+
+.products-box{
+        width: 100%;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        //background: rgba(222, 222, 222, 0.2);
+        margin: 1px 0px;
+        padding: 0px 0px;
+        text-align: left;
+        background: #f2f2f2;
+
+        //分类说明区域
+        .category-info{
+            width: 100%;
+            height: 150px;
+            display: -webkit-flex;
+            display: flex;
+            box-shadow: 0px 3px 5px #ccc;
+            opacity: 0.8;
+
+            //分类宣传图
+            img{
+                object-fit: cover;
+            }
+        }
+
+        //分类下的商品统计区块
+        .products-statistics{
+            margin: 0px;
+            padding: 10px 10px;
+            text-align: center;
+            width: 100%;
+            font-size: 14px;
+            color: #666;
+            background: #fff;
+            border-bottom: 1px solid #f1f1f1;
+            text-shadow: 1px 1px 0px #ccc;
+            display: -webkit-flex;
+            display: flex;
+
+            img{
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: inline-block;
+            }
+
+            span{
+                display: inline-block;
+                height: 40px;
+                line-height: 40px;
+
+                &.cate-name{
+                    width: 30%;
+                    text-align: left;
+                    font-size: 16px;
+                    text-indent: 10px;
+                }
+
+                &.cate-statistics{
+                    width: -moz-calc(70% - 30px);
+                    width: -webkit-calc(70% - 30px);
+                    width: calc(70% - 30px);
+                    text-align: right;
+                }
+            }
+        }
+
+        //页面底部
+        p.laster{
+            text-align: center;
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            color: #aaa;
+            font-size: 14px;
+        }
+    }

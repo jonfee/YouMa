@@ -1,29 +1,33 @@
 /*
-*   初始化商品分类信息
-*/
-var categories=[
-    {
-        "Name":"类目A",
-        "Id":"1",
-        "Icon":"/assets/imgs/categories/icon/",
-        "Picture":"/assets/imgs/categories/adpicture/",
-        "IsRecommend":true,
-        "ProductCount":20
+ *   初始化商品分类信息
+ */
+const categories = [{
+        "Name": "益智玩具",
+        "Id": 1,
+        "IconClass": "cate-icon-1",
+        "Icon": "/static/imgs/categories/icon/cate-icon-1.png",
+        "PictureClass": "cate-pic-1",
+        "IsRecommend": true,
+        "ProductCount": 10
     },
     {
-        "Name":"类目B",
-        "Id":"2",
-        "Icon":"/assets/imgs/categories/icon/",
-        "Picture":"/assets/imgs/categories/adpicture/",
-        "IsRecommend":true,
-        "ProductCount":20
+        "Name": "数码配件",
+        "Id": 2,
+        "IconClass": "cate-icon-2",
+        "Icon": "/static/imgs/categories/icon/cate-icon-2.png",
+        "PictureClass": "cate-pic-2",
+        "IsRecommend": true,
+        "ProductCount": 10
     },
     {
-        "Name":"类目C",
-        "Id":"3",
-        "Icon":"/assets/imgs/categories/icon/",
-        "Picture":"/assets/imgs/categories/adpicture/",
-        "IsRecommend":true,
-        "ProductCount":20
+        "Name": "国际品牌",
+        "Id": 3,
+        "IconClass": "cate-icon-3",
+        "Icon": "/static/imgs/categories/icon/cate-icon-3.png",
+        "PictureClass": "cate-pic-3",
+        "IsRecommend": true,
+        "ProductCount": 11
     }
 ]
+
+export default categories;
