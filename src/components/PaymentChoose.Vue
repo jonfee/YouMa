@@ -107,7 +107,7 @@ export default {
     },
     methods: {
         onPay() {
-            alert("支付申请中!");
+            this.$toast.error("支付申请中!");
         },
         onChosePayType(payType) {
             this.currentPayTypeId = payType.id;

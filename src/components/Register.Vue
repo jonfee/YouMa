@@ -88,26 +88,29 @@ export default {
     methods: {
         register() {
             if (!this.user.username) {
-                alert('请输入登录账号！');
+                this.$toast.error('请输入登录账号！');
                 return;
             }
             else if (!this.user.password) {
 
-                alert('请输入登录密码！');
+                this.$toast.error('请输入登录密码！');
                 return;
             }
 
             // 从localStorage中查询当前用户
             let dbUser = Storage.get(this.user.username);
             if (dbUser) {
-                alert('账号已存在,请直接登录！');
+                this.$toast.error('账号已存在,请直接登录！');
                 return;
             }
 
             Storage.set(this.user.username, this.user);
 
-            // 跳转至首页
-            this.$router.push('login');
+            this.$toast.success('注册成功');
+            setTimeout(() => {
+                // 跳转至登录
+                this.$router.push('login');
+            }, 1000);
         }
     }
 }

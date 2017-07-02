@@ -51,11 +51,11 @@ export default {
     methods: {
         login() {
             if (!this.user.username) {
-                alert('请输入登录账号！');
+                this.$toast.error('请输入登录账号！');
                 return;
             }
             else if (!this.user.password) {
-                alert('请输入登录密码！');
+                this.$toast.error('请输入登录密码！');
                 return;
             }
 
@@ -63,19 +63,24 @@ export default {
             let dbUser = Storage.get(this.user.username);
 
             if (!dbUser) {
-                alert('账号不存在,请先注册！');
+                this.$toast.error('账号不存在,请先注册！');
                 return;
             }
 
             if (dbUser.password != this.user.password) {
-                alert('登录密码错误，请重新输入！');
+                this.$toast.error('登录密码错误，请重新输入！');
                 return;
             }
 
             // 设置当前登录用户的Cookie
             security.setCurrentUser({ "username": dbUser.username });
-            // 跳转至首页
-            this.$router.push('home');
+
+            this.$toast.success('登录成功');
+
+            setTimeout(() => {
+                // 跳转至首页
+                this.$router.push('home');
+            }, 1000);
         }
     }
 }

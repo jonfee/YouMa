@@ -134,12 +134,12 @@ export default{
         */
         onSubmit: function(){
             if(this.address_linkman.trim() == ''){
-                alert('收货人姓名不能为空');
+                this.$toast.error('收货人姓名不能为空');
             } 
             else if(this.address_tel.trim() == '') {
-                alert('收货人联系电话不能空');
+                this.$toast.error('收货人联系电话不能空');
             }else if(this.address_street.trim() == ''){
-                alert(this.address.stree);
+                this.$toast.error(this.address.stree);
             }else{
                 var _address = {
                     linkman : this.address_linkman,
