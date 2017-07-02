@@ -60,7 +60,8 @@ const routers =[
         path: '/user/center', 
         component: UserCenter,
         meta:{
-            title: '用户中心'
+            title: '用户中心',
+            mustLogin: true
         }
     },
     //分类列表
@@ -105,7 +106,8 @@ const routers =[
         path: '/order/confirm', 
         component: OrderConfirm,
         meta:{
-            title: '确认订单'
+            title: '确认订单',
+            mustLogin: true
         }
     },
     //支付方式选择
@@ -114,7 +116,8 @@ const routers =[
         path: '/order/payment', 
         component: PaymentChoose,
         meta:{
-            title: '选择支付方式'
+            title: '选择支付方式',
+            mustLogin: true
         }
     },
     //默认

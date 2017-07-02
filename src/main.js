@@ -21,26 +21,20 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
     window.scroll(0, 0);
     
-    //检测是否已登录
-    var isLogin = security.isLogin();
+    //即将活动的组件页面，是否需要登录后操作
+    var mustLogin = to.meta.mustLogin || false;
 
-    var _go = null;    
+    //如果需要登录后才能操作
+    if(mustLogin){
+        //检测是否已登录
+        var isLogin = security.isLogin();
 
-    //未登录时，处理登录后操作页面的跳转
-    if(!isLogin){
-        switch(to.name.toLowerCase()){
-            case 'order_confirm':
-            case 'user_center':
-                  _go = { name: 'login' };
-                 break;
+        if(!isLogin){
+            next({ name: 'login' });
         }
     }
 
-    if(_go != null){
-        next(_go);
-    }else{
-        next();
-    }
+    next();
 });
 
 /* eslint-disable no-new */
