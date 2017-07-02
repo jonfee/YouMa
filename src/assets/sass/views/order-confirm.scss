@@ -4,7 +4,7 @@
 
 @charset 'UTF-8';
 
-#order-confirm{
+.order-confirm{
 
     width:100%;
     height: auto;
@@ -32,7 +32,7 @@
     .address{
         font-size: 14px;
         margin-top: 5px;
-        padding: 5px 0px;
+        padding: 5px 10px;
         color: #666;
         height: auto;
 
@@ -49,30 +49,14 @@
             line-height: 40px;
             display: -webkit-flex;
             display: flex;
-
-            >span{
-                display: inline-block;
-                width: 50%;
-                height: 40px;
-
-                &:first-child{
-                    font-size: 16px;
-                    font-weight: bold;
-                    text-align: left;
-                }                
-
-                &:last-child{
-                    font-size: 14px;
-                    text-align: right;
-                    color: #ff9900;
-                }
-            }            
+            border-bottom: 1px solid #f1f1f1;    
+            text-align: left;      
         }
 
         input{
             height: 30px;
             line-height: 30px;   
-            text-indent: 2px;        
+            text-indent: 5px;        
         }
 
         /*收货人、联系电话*/

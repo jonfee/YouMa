@@ -76,9 +76,6 @@ export default {
             security.setCurrentUser({ "username": dbUser.username });
             // 跳转至首页
             this.$router.push('home');
-        },
-        getLoginUserCookieKey() {
-            return '__youma.loginuser_';
         }
     }
 }

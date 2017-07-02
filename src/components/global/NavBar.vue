@@ -5,7 +5,7 @@
         </div>
         <div class="m-header-button m-header-title" v-text="navinfo.title"></div>
         <div class="m-header-button is-right">
-            <router-link :to="user.link">{{ user.displayText }}</router-link>
+            <router-link v-show="navinfo.showUser" :to="user.link">{{ user.displayText }}</router-link>
         </div>
     </section>
 </template>
@@ -13,7 +13,7 @@
 <script>
 import security from './../../utils/security';
 /**
-*   导航组件所需要的数据对象为：{title:'标题',backtext:'返回按钮的内容',backlink:'返回的路由', noback: 是否隐藏返回按钮,hide: 是否隐藏导航}
+*   导航组件所需要的数据对象
 *   特别声明：
 *       1、当传递的数据对象为null时，将使用默认信息（_defInfo变量）；
 *       2、当传递的数据对象中某值为null时，将使用默认信息，同上。
@@ -28,21 +28,25 @@ export default {
     props: ['info'],
     computed:{
         navinfo: function(){
+            var _showUser = this.info.showUser;
+            if(_showUser === undefined){
+                _showUser = true;
+            }
             return {
-                title: this.info.title || '优码商城',
-                backtext: this.info.backtext || '〈 返回',
-                backlink: this.info.backlink || '/',
-                noback: this.info.noback || false,
-                hide: this.info.hide || false
+                title: this.info.title || '优码商城',                   //导航标题
+                backtext: '〈 ' + (this.info.backtext || '返回'),      //返回按钮文字 
+                backlink: this.info.backlink || '/',                    //返回的链接
+                noback: this.info.noback || false,                      //是否需要返回铵钮
+                hide: this.info.hide || false,                          //是否隐藏整个导航条
+                showUser: _showUser                                     //是否显示登录用户信息
             };
         }
     },
     created: function(){
-        //设置页面title
-        document.title = this.$route.meta.title;
-        this.user = this.getUser();
+            this.bindData();
     },
     methods: {
+        /*获取用户信息*/
         getUser: function(){
             //登录用户名
             var _user = security.getCurrentUser();
@@ -63,19 +67,25 @@ export default {
                     link = '/user/login';
                 }
             }
-
+            
             return {
                 name: _user.username,
                 displayText: disText,
                 link: link
             }
+        },
+        /*绑定数据*/
+        bindData: function(){
+            //设置页面title
+            document.title = this.$route.meta.title;
+            //绑定用户信息
+            this.user = this.getUser();
         }
     },
     watch: {
         navinfo: function()
         {
-            //绑定用户信息
-            this.user = this.getUser();
+            this.bindData();
         }
     }
 }

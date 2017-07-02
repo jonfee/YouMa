@@ -27,6 +27,10 @@ let deserialize = function(value) {
 };
 
 export default {
+    /**清除登录信息 */
+    clear(){
+        document.cookie = `${loginUserCookieKey}='; max-age=0; path=/`
+    },
     setCurrentUser(user) {
         if (user && isJSON(user)) {
             // 设置当前登录用户的Cookie

@@ -2,7 +2,7 @@
   <div id="app">
     <!--顶部导航组件-->
     <navbar :info="navinfo"></navbar>
-    <router-view keep-alive @setnav="setNav"></router-view>
+    <router-view @setnav="setNav"></router-view>
   </div>
 </template>
 
