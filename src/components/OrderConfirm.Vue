@@ -122,7 +122,7 @@ export default{
             else if(this.address_tel.trim() == '') {
                 this.$toast.error('收货人联系电话不能空');
             }else if(this.address_street.trim() == ''){
-                this.$toast.error(this.address.stree);
+                this.$toast.error(this.address.street);
             }else{
                 var _address = {
                     linkman : this.address_linkman,

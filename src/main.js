@@ -5,6 +5,7 @@ import VueRouter from 'vue-router';
 import App from './App';
 import routers from './router';
 import './assets/sass/base/common.scss';
+import security from './utils/security';
 import Toast from './components/global/Toast/index'
 
 Vue.config.productionTip = false;
