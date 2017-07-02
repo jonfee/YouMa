@@ -29,13 +29,6 @@ import './../assets/sass/views/user_center.scss'
 export default{
     data() {
         return {
-            //导航信息
-            navinfo:{
-                title: '用户中心',
-                backlink: '/',
-                backtext: '首页',
-                showUser: false
-            },
             //用户信息
             user: {},
             //收货地址
@@ -43,11 +36,7 @@ export default{
             message: '欢迎您回来'
         }
     },
-    props: ['setnav'],
     created: function(){
-        //设置导航信息
-        this.$emit('setnav',this.navinfo);
-
         //获取用户信息
         this.user = security.getCurrentUser();
 

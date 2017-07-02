@@ -30,7 +30,7 @@ router.beforeEach((to, from, next) => {
         var isLogin = security.isLogin();
 
         if(!isLogin){
-            next({ name: 'login' });
+           return next({ name: 'login' });
         }
     }
 

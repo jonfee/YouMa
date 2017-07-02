@@ -67,11 +67,6 @@ import { storage as Storage } from './../utils/localStorage'
 export default {
     data() {
         return {
-            navinfo: {
-                title: '用户注册',
-                backlink: '/user/login',
-                backtext: ''
-            },
             user: {
                 username: '',
                 password: '',
@@ -79,11 +74,6 @@ export default {
             },
             showAggree: false // 显示协议模态
         }
-    },
-    props: ['setnav'],
-    created: function () {
-        //设置导航信息
-        this.$emit('setnav', this.navinfo);
     },
     methods: {
         register() {

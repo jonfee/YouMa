@@ -2,7 +2,9 @@
     <!--商品展示区域-->
     <section class="products-box">
         <section class="products-statistics">
-             该分类下共有 {{ products.length }} 件商品
+            <img :src="currentCategory.Icon" />
+            <span class="cate-name">{{ currentCategory.Name }}</span>
+            <span class="cate-statistics">共有 {{ products.length }} 件商品</span>
         </section>
         <!--商品-->
         <product_list :categories="categories" :products="products" class="columns-two" ></product_list>
@@ -22,11 +24,6 @@ import product_list from '@/components/global/productlist'
 export default{
     data() {
         return {
-            //导航信息
-            navinfo:{
-                title: '分类商品',
-                backlink: '/product/categories'
-            },
             //所有商品分类
             categories: null,
             //当前商品分类
@@ -36,22 +33,15 @@ export default{
         }
     },
     components: { product_list },
-    props: ['setnav'],
     created: function(){
         // 分类ID
         var cateId = this.$route.query.id;
-        
-        //设置导航信息
-        this.$emit('setnav',this.navinfo);   
 
         //所有商品分类
         this.categories = global.Categories;
         
         //当前商品分类
         this.currentCategory = this.categories.filter(item=>item.Id==cateId)[0];
-
-        //设置导航标题
-        this.navinfo.title=this.currentCategory.Name;
 
         //推荐的商品
         this.products = this.getProducts(cateId);
