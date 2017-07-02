@@ -38,11 +38,10 @@ export default {
         }
     },
     created: function(){
-        //设置页面title
-        document.title = this.$route.meta.title;
-        this.user = this.getUser();
+            this.bindData();
     },
     methods: {
+        /*获取用户信息*/
         getUser: function(){
             //登录用户名
             var _user = security.getCurrentUser();
@@ -63,19 +62,25 @@ export default {
                     link = '/user/login';
                 }
             }
-
+            
             return {
                 name: _user.username,
                 displayText: disText,
                 link: link
             }
+        },
+        /*绑定数据*/
+        bindData: function(){
+            //设置页面title
+            document.title = this.$route.meta.title;
+            //绑定用户信息
+            this.user = this.getUser();
         }
     },
     watch: {
         navinfo: function()
         {
-            //绑定用户信息
-            this.user = this.getUser();
+            this.bindData();
         }
     }
 }
