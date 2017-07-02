@@ -12,14 +12,13 @@
                 </p>
                 <p>
                     <span>订单金额：</span>
-                    <span class="amount">￥{{orderInfo.orderAmount.toFixed(2)}}</span>
+                    <span class="amount">￥{{ orderInfo.orderAmount }}</span>
                 </p>
             </div>
         </section>
     
-        <p>请选择支付方式</p>
-    
         <div class="paylist">
+            <p class="payment-tip">请选择支付方式</p>
             <section v-for="payType in payTypeList" @click="onChosePayType(payType)">
                 <span class="logo">
                     <img class="rectangle" :src="payType.logo">
@@ -42,10 +41,10 @@ export default {
     created() {
 
         let query = this.$route.query;
-        if (query && query.orderNo) {
+        if (query && query.code) {
             this.orderInfo = {
-                orderAmount: isNaN(query.orderAmount) ? 0 : query.orderAmount,
-                orderNo: query.orderNo
+                orderAmount: isNaN(query.amount) ? 0 : Number(query.amount).toFixed(2),
+                orderNo: query.code
             }
         }
         let interval = setInterval(() => {
@@ -86,16 +85,17 @@ export default {
     },
     data() {
         return {
-            payTypeList: [{
-                id: '1',
-                name: '银行卡支付',
-                logo: '/static/icons/chinaunionpay.ico'
-            },
-            {
-                id: '2',
-                name: '微信支付',
-                logo: '/static/icons/wechat.ico'
-            }
+            payTypeList: [
+                {
+                    id: '1',
+                    name: '银行卡支付',
+                    logo: '/static/icons/chinaunionpay.ico'
+                },
+                {
+                    id: '2',
+                    name: '微信支付',
+                    logo: '/static/icons/wechat.ico'
+                }
             ],
             orderInfo: {
                 orderAmount: 88.00,
