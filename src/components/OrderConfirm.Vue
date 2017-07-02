@@ -118,11 +118,10 @@ export default{
         onSubmit: function(){
             if(this.address_linkman.trim() == ''){
                 this.$toast.error('收货人姓名不能为空');
-            } 
-            else if(this.address_tel.trim() == '') {
+            }else if(this.address_tel.trim() == '') {
                 this.$toast.error('收货人联系电话不能空');
             }else if(this.address_street.trim() == ''){
-                this.$toast.error(this.address.street);
+                this.$toast.error('收货地址不能为空');
             }else{
                 var _address = {
                     linkman : this.address_linkman,
