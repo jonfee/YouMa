@@ -14,7 +14,9 @@ Vue.use(VueRouter);
 Vue.use(Toast);
 
 const router = new VueRouter({
-    mode: 'history',
+    //mode: 'history',
+    history: false,
+    hashbang: true,
     routes: routers
 });
 
