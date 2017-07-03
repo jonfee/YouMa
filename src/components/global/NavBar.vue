@@ -1,12 +1,12 @@
 <template>
     <section v-if="!navinfo.hide" class="m-header is-bg is-fixed">
-        <div class="m-header-button is-left">
+        <span class="m-header-button is-left">
             <a href="javascript:;" v-if="!navinfo.noback" @click="goBack">{{ navinfo.backtext }}</a>
-        </div>
-        <div class="m-header-button m-header-title" v-text="navinfo.title"></div>
-        <div class="m-header-button is-right">
+        </span>
+        <span class="m-header-button m-header-title" v-text="navinfo.title"></span>
+        <span class="m-header-button is-right">
             <router-link v-show="navinfo.user.show" :to="navinfo.user.link">{{ navinfo.user.displayText }}</router-link>
-        </div>
+        </span>
     </section>
 </template>
 
@@ -105,14 +105,22 @@ export default {
 @headerDefaultColor: rgb(73, 73, 73);
 
 .m-header {
-    display: flex;
-    align-items: center;
     height: 44px;
     padding: 0 10px;
+    margin: 0px auto;
     background: @headerBg;
     color: @headerDefaultColor;
-    display: -webkit-fixed;
-    display: fixed;
+
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 
     a {
         color: @headerDefaultColor;
@@ -120,8 +128,11 @@ export default {
     }
 
     .m-header-button{
-        height: 100%;
+        display: inline-block;
+        height: 44px;
         line-height: 44px;
+        margin: 0px;
+        padding: 0px;
 
         &.is-left{
             width: 20%;
@@ -130,11 +141,13 @@ export default {
         
         &.m-header-title {
             width: 60%;
-            text-align: center;
             font-size: 16px;
             font-weight: bold;
             text-overflow: ellipsis;
             white-space: nowrap;
+            text-align: center;
+            text-align: -webkit-center;
+            text-align: -moz-center;
             overflow: hidden;
         }
 
