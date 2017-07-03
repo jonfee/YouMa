@@ -25,14 +25,17 @@ router.beforeEach((to, from, next) => {
     //即将活动的组件页面，是否需要登录后操作
     var mustLogin = to.meta.mustLogin || false;
 
-    //如果需要登录后才能操作
-    if(mustLogin){
-        //检测是否已登录
-        var isLogin = security.isLogin();
+    //检测是否已登录
+    var isLogin = security.isLogin();
 
-        if(!isLogin){
-           return next({ name: 'login' });
-        }
+    //如果需要登录后才能操作
+    if(mustLogin && !isLogin){
+        return next({ name: 'login' });
+    }
+
+    //如果已登录且指向登录页，则跳转到用户中心
+    if(isLogin && to.name == 'login'){
+        return next({ name: 'user_center' });
     }
 
     next();

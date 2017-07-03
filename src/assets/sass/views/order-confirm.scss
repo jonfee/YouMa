@@ -228,8 +228,8 @@
 
     /*表单操作*/
     .form-action{ 
-        height: 50px;
-        line-height: 50px;      
+        height: 40px;
+        line-height: 40px;      
         background: #67C36F;
         border: none;
         font-size: 14px;
@@ -237,6 +237,8 @@
         transition: .3s;
         cursor: pointer;
         position: fixed;
+        left: 0px;
+        right: 0px;
         bottom: 0px;
 
         &:hover{
