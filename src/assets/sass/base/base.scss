@@ -21,8 +21,9 @@ html {
 }
 
 #app {
+    max-width: 720px;
     height: 100%;
-    margin-top: 0;
+    padding-top: 44px;
 }
 
 body {
@@ -46,6 +47,10 @@ body {
     -webkit-user-select: none;
     box-sizing:border-box;
     font-size: 14px;
+
+    *{
+        max-width: 720px;
+    }
 }
 
 a {
