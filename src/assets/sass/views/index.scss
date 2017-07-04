@@ -7,15 +7,14 @@
 
     /*banner图片广告盒子样式*/
     .top-banner-box{
-        height: 180px;
-        max-height: 180px;
+        min-height: 180px;
         margin: 0 auto;
         padding: 0px;
         box-sizing: border-box;
 
         img{
             max-width: 100%;
-            height: 100%;
+            height: auto;
         }
     }
 
