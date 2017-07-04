@@ -52,7 +52,7 @@ export default {
             //指定导航信息
             this.navinfo = {
                 title: title || '优码商城',                   //导航标题
-                backtext: '〈' + (nav.backtext || '返回'),                   //返回按钮文字 
+                backtext: '〈 ' + (nav.backtext || '返回'),                   //返回按钮文字 
                 noback: nav.noback || false,                      //是否需要返回铵钮
                 hide: nav.hide || false,                          //是否隐藏整个导航条
                 user: {
