@@ -1,5 +1,5 @@
 <template>
-    <section v-if="!navinfo.hide" class="m-header is-bg is-fixed">
+    <section v-if="!navinfo.hide" class="m-header is-bg">
         <span class="m-header-button is-left">
             <a href="javascript:;" v-if="!navinfo.noback" @click="goBack">{{ navinfo.backtext }}</a>
         </span>
