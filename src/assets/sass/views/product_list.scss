@@ -123,7 +123,11 @@ ul.columns-one{
         }     
 
         .product-info{
-            width: 100%;
+            width: -webkit-calc(100% - 130px);
+            width: -moz-calc(100% - 130px);
+            width: -ms-calc(100% - 130px);
+            width: calc(100% - 130px);
+            max-width: 580px;
             padding: 5px;
             
             >span{

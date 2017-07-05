@@ -2,23 +2,23 @@
 //《JavaScript权威指南》一书中有实现基于cookie的存储API，我把代码敲下来
 
 //默认配置
-const defaults = {
+var defaults = {
     maxage: 60*60*24*1000,  //默认1000天
     path: '/'
 }
 
 // 是否为json对象
-let isJSON = function(obj) {
+var isJSON = function(obj) {
     return typeof obj === "object" && Object.prototype.toString.call(obj).toLowerCase() === "[object object]" && !obj.length;
 };
 
 // 序列化
-let serialize = function(value) {
+var serialize = function(value) {
     return value === undefined || typeof value === "function" ? value + "" : JSON.stringify(value);
 };
 
 // 反序列化
-let deserialize = function(value) {
+var deserialize = function(value) {
     if (typeof value !== "string") {
         return undefined;
     }
@@ -30,7 +30,7 @@ let deserialize = function(value) {
     }
 };
 
-let getCookie = function(){
+var getCookie = function(){
     var _cookie = {};
     var all = document.cookie;
     if(all === "")
@@ -46,10 +46,10 @@ let getCookie = function(){
     return _cookie;
 }
 
-let cookie = getCookie();
-let keys = [];
+var cookie = getCookie();
+var keys = [];
 
-let storage = {
+var storage = {
     set: function(key, value, maxage, path){
         if(!(key in cookie)){
             keys.push(key);

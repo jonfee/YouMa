@@ -40,14 +40,14 @@ import './../assets/sass/views/paymentchoose.scss'
 export default {
     created() {
 
-        let query = this.$route.query;
+        var query = this.$route.query;
         if (query && query.code) {
             this.orderInfo = {
                 orderAmount: isNaN(query.amount) ? 0 : Number(query.amount).toFixed(2),
                 orderNo: query.code
             }
         }
-        let interval = setInterval(() => {
+        var interval = setInterval(() => {
             this.countDownSeconds--;
             if (this.countDownSeconds <= 0) {
                 this.countDownSeconds = 0;

@@ -105,6 +105,7 @@ export default {
 @headerDefaultColor: rgb(73, 73, 73);
 
 .m-header {
+    width: 100%;
     height: 44px;
     padding: 0 10px;
     margin: 0px auto;

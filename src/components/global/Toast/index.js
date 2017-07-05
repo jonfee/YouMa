@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import ToastComponet from './Toast'
 
-let instance;
+var instance;
 
-let toastConstructor = Vue.extend(ToastComponet);
+var toastConstructor = Vue.extend(ToastComponet);
 
-let Toast = () => {
+var Toast = () => {
     if (!instance) {
         instance = new toastConstructor({
             el: document.createElement('div')

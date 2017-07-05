@@ -1,7 +1,7 @@
 /*
  *   初始化商品分类信息
  */
-const categories = [{
+var categories = [{
         "Name": "益智玩具",
         "Id": 1,
         "IconClass": "cate-icon-1",

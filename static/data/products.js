@@ -1,7 +1,7 @@
 /*
  *   初始化商品信息
  */
-const products = [{
+var products = [{
         "Id": 1001, //商品ID
         "Name": "特宝儿（topbright）趣味滑翔车 小孩益智玩具 男孩轨道车儿童玩具", //名称
         "CategoryId": "1", //所属分类ID

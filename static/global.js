@@ -8,7 +8,7 @@ import AD from './data/ad';
 /*
 *   定义全局配置信息
 */
-const global = {
+var global = {
     Logo : "/assets/imgs/logo.png",                             //LOGO
     ICP : "粤ICP备17017713号-1",                                //ICP备案号
     Tel : "86 0755-25880367",                                   //联系电话

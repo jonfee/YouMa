@@ -167,7 +167,7 @@ export default {
             }
 
             // 从localStorage中查询当前用户
-            let dbUser = Storage.get(this.user.username);
+            var dbUser = Storage.get(this.user.username);
             if (dbUser) {
                 this.$toast.error('账号已存在,请直接登录！');
                 return;

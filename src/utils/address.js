@@ -7,12 +7,12 @@ import { storage as Storage } from './localStorage';
 //引入 security 操作类
 import security from './security';
 
-let getCookieName = function(){
+var getCookieName = function(){
     var user = security.getCurrentUser();
     return "address_" + user.username;
 }
 
-let currentKey = getCookieName();
+var currentKey = getCookieName();
 
 export default{
     getLast: function(){

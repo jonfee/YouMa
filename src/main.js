@@ -13,7 +13,7 @@ Vue.config.productionTip = false;
 Vue.use(VueRouter);
 Vue.use(Toast);
 
-const router = new VueRouter({
+var router = new VueRouter({
     //mode: 'history',
     history: false,
     hashbang: true,
@@ -44,7 +44,7 @@ router.beforeEach((to, from, next) => {
 });
 
 /* eslint-disable no-new */
-let vm = new Vue({
+var vm = new Vue({
     el: '#app',
     router,
     render: h => h(App)

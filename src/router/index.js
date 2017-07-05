@@ -26,7 +26,7 @@ import ProductDetails from '@/components/ProductDetails'
 import SearchResult from '@/components/SearchResult'
 
 //创建路由实例并配置路由映射
-const routers =[
+var routers =[
     //首页
     {
         name: 'home', 

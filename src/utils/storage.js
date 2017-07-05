@@ -3,22 +3,22 @@
 if (!window.localStorage)
     throw new Error("Browser does not support localstorage.");
 
-let localStorage = window.localStorage,
+var localStorage = window.localStorage,
     evenStorage = function() {};
 
-let isJSON = function(obj) {
+var isJSON = function(obj) {
     return typeof obj === "object" && Object.prototype.toString.call(obj).toLowerCase() === "[object object]" && !obj.length;
 };
 
-let isFunction = function(value) {
+var isFunction = function(value) {
     return {}.toString.call(value) === "[object Function]";
 };
 
-let serialize = function(value) {
+var serialize = function(value) {
     return value === undefined || typeof value === "function" ? value + "" : JSON.stringify(value);
 };
 
-let deserialize = function(value) {
+var deserialize = function(value) {
     if (typeof value !== "string") {
         return undefined;
     }
@@ -30,14 +30,14 @@ let deserialize = function(value) {
     }
 };
 
-let storage = {
+var storage = {
     set: function(key, value) {
         evenStorage("set", key, value);
 
         if (key && !isJSON(key)) {
             localStorage.setItem(key, serialize(value));
         } else if (key && isJSON(key) && !value) {
-            for (let k in key) {
+            for (var k in key) {
                 this.set(k, key[k]);
             }
         }
@@ -47,7 +47,7 @@ let storage = {
 
     get: function(key) {
         if (!key) {
-            let result = {};
+            var result = {};
 
             this.forEach(function(key, value) {
                 result[key] = value;
@@ -70,7 +70,7 @@ let storage = {
     },
 
     remove: function(key) {
-        let value = this.get(key);
+        var value = this.get(key);
         localStorage.removeItem(key);
         evenStorage("remove", key, value);
 
@@ -82,7 +82,7 @@ let storage = {
     },
 
     keys: function() {
-        let result = [];
+        var result = [];
 
         this.forEach(function(key, list) {
             result.push(key);
@@ -96,8 +96,8 @@ let storage = {
     },
 
     forEach: function(callback) {
-        for (let i = 0; i < localStorage.length; i++) {
-            let key = localStorage.key(i);
+        for (var i = 0; i < localStorage.length; i++) {
+            var key = localStorage.key(i);
 
             if (callback(key, this.get(key)) === false) {
                 break;
@@ -108,10 +108,10 @@ let storage = {
     },
 
     search: function(str) {
-        let keys = this.keys(),
+        var keys = this.keys(),
             result = [];
 
-        for (let i = 0; i < keys.length; i++) {
+        for (var i = 0; i < keys.length; i++) {
             if (keys[i].indexOf(str) > -1) {
                 result.push(this.get(keys[i]));
             }

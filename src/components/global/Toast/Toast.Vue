@@ -8,13 +8,13 @@
 </template>
 
 <script>
-const successIcon = '/static/icons/success.ico';
-const errorIcon = '/static/icons/error.ico';
-const infoIcon = '/static/icons/info.ico';
+var successIcon = '/static/icons/success.ico';
+var errorIcon = '/static/icons/error.ico';
+var infoIcon = '/static/icons/info.ico';
 export default {
     computed: {
         toastClass() {
-            let positionCss = 'top';
+            var positionCss = 'top';
             if (this.position == 'middle') {
                 positionCss = 'middle';
             } else if (this.position == 'bottom') {
@@ -68,21 +68,21 @@ export default {
             }, this.duration);
         },
         success(msg, options = null) {
-            let para = {};
+            var para = {};
             if (options)
                 para = options;
             para.icon = successIcon;
             this.show(msg, para);
         },
         error(msg, options = null) {
-            let para = {};
+            var para = {};
             if (options)
                 para = options;
             para.icon = errorIcon;
             this.show(msg, para);
         },
         info(msg, options = null) {
-            let para = {};
+            var para = {};
             if (options)
                 para = options;
             para.icon = infoIcon;
