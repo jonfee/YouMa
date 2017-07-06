@@ -4,13 +4,18 @@
 var ad = [
     {
         "Code" : 1001,
-        "Title" : "我是首页Banner广告",
-        "Pictures" : [
-            {
-                "FilePath" : "",
-                "Href" : null,
-            }
-        ]
+        "Title" : "",
+        "Picture": "/static/imgs/ad/home_1.png"
+    },
+    {
+        "Code" : 1002,
+        "Title" : "",
+        "Picture": "/static/imgs/ad/home_2.png"
+    },
+    {
+        "Code" : 1003,
+        "Title" : "",
+        "Picture": "/static/imgs/ad/home_3.png"
     }
 ]
 

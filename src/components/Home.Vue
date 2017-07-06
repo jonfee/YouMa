@@ -2,7 +2,7 @@
     <div class="home-container">
         <!--Banner展示区域-->
         <section class="top-banner-box">
-            <img src="/static/imgs/ad/home_01.png" />
+            <app_banner :banners="banners"></app_banner>
         </section>
         <!--商品分类导航展示区域-->
         <section class="nav-menu-box">
@@ -35,12 +35,16 @@
 import {global} from './../../static/global'
 // 引入首页样式
 import './../assets/sass/views/index.scss'
+// 轮播展示组件
+import app_banner from '@/components/global/banner'
 // 商品列表展示组件
 import product_list from '@/components/global/productlist'
 
 export default {
     data() {
         return {
+            //banner广告图数据
+            banners: null,
             //所有商品分类
             categories: null,
             //推荐的商品分类
@@ -49,8 +53,11 @@ export default {
             recommandProducts: null
         }
     },
-    components: { product_list },
+    components: { app_banner, product_list },
     created: function(){
+
+        //广告
+        this.banners = global.AD;
 
         //所有商品分类
         this.categories = global.Categories;

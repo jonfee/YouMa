@@ -98,11 +98,11 @@ export default {
 
 <style scoped lang="less">
 //APP默认颜色
-@defaultColor: #42bd56;
+@defaultColor: rgba(255, 255, 255, 0.8);
 //导航底色
 @headerBg: @defaultColor;
 //导航默认前景色
-@headerDefaultColor: rgb(73, 73, 73);
+@headerDefaultColor: rgba(50, 50, 50, 1);
 
 .m-header {
     width: 100%;
@@ -111,11 +111,13 @@ export default {
     margin: 0px auto;
     background: @headerBg;
     color: @headerDefaultColor;
+    border-bottom: 1px solid #ccc;
 
     position: fixed;
     left: 0px;
     top: 0px;
     right: 0px;
+    z-index: 99;
 
     display: -webkit-flex;
     display: flex;
@@ -160,12 +162,18 @@ export default {
     
     &.is-bg {
         background: @headerBg;
-        color: #fff;
+        
         a {
-            color: #fff;
+            color: @headerDefaultColor;
+        }
+        .is-right{
+            color: @headerDefaultColor;
+        }
+        .is-left{
+            color: @headerDefaultColor;
         }
         .m-header-title {
-            color: #fff;
+            color: @headerDefaultColor;
         }
     }
     &.is-fixed {
