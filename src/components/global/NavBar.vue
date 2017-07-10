@@ -99,11 +99,6 @@ export default {
             this.$router.push({
                 path: this.navinfo.user.link
             });
-        },
-
-        /**跳转到官网**/
-        goOrgSite: function () {
-
         }
     }
 }
@@ -160,9 +155,9 @@ export default {
                 width: 100%;
                 height: 100%;
                 background: url("/static/imgs/logo_nav.png");
-                background-size: auto 25px;
+                background-size: auto 20px;
                 background-repeat: no-repeat;
-                background-position: 0px 10px;
+                background-position: 0px 12px;
             }
         }
 
