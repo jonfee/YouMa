@@ -21,34 +21,34 @@ import security from './../../utils/security';
 *       3、返回操作，默认为 this.$router.go(-1)，即返回上一个路由
 */
 export default {
-    data(){
-        return{
+    data() {
+        return {
             navinfo: {}
         }
     },
-    created: function(){
+    created: function () {
         this.update();
     },
-    watch:{
-        '$route': function(){
+    watch: {
+        '$route': function () {
             this.update();
         }
     },
-    
-    methods:{
-        update: function(){
+
+    methods: {
+        update: function () {
             //获取当前路由的导航信息
             var nav = this.$route.meta.nav;
 
             //获取用户信息
             var _user = this.getUser();
-            
+
             //导航标题
             var title = nav.title;
 
             //是否显示登录用户
-            var showUser= nav.showUser;
-            if(showUser === undefined) showUser = true; 
+            var showUser = nav.showUser;
+            if (showUser === undefined) showUser = true;
 
             //指定导航信息
             this.navinfo = {
@@ -60,7 +60,7 @@ export default {
                     show: showUser,                             //是否显示登录用户信息
                     displayText: _user.displayText,             //显示的用户信息
                     link: _user.link                            //用户链接地址
-                }                       
+                }
             };
 
             //设置页面title
@@ -68,7 +68,7 @@ export default {
         },
 
         /*获取用户信息*/
-        getUser: function(){
+        getUser: function () {
             //登录用户名
             var _user = security.getCurrentUser();
 
@@ -77,36 +77,32 @@ export default {
             //链接
             var link = '/user/center';
 
-            if(disText == '') {
-                if(this.$route.name == 'login'){
+            if (disText == '') {
+                if (this.$route.name == 'login') {
                     disText = '注册';
                     link = '/user/register';
-                }else{
+                } else {
                     disText = '登录';
                     link = '/user/login';
                 }
             }
-            return { displayText: disText, link: link};
+            return { displayText: disText, link: link };
         },
 
         /** 后退/返回 按钮点击事件**/
-        backOnClick: function() {
+        backOnClick: function () {
             this.$router.go(-1);
         },
-        
+
         /**登录/注册 铵钮点击事件**/
-        userOnClick: function() {
-            if(this.navinfo.user.displayText === '登录'){
-                this.$toast.error('登录弹出框未实现！');
-            }else{
-                this.$router.push({
-                    path: this.navinfo.user.link
-                });
-            }
+        userOnClick: function () {
+            this.$router.push({
+                path: this.navinfo.user.link
+            });
         },
 
         /**跳转到官网**/
-        goOrgSite: function() {
+        goOrgSite: function () {
 
         }
     }
@@ -148,18 +144,18 @@ export default {
         cursor: pointer;
     }
 
-    .m-header-button{
+    .m-header-button {
         display: inline-block;
         height: 44px;
         line-height: 44px;
         margin: 0px;
         padding: 0px;
 
-        &.is-left{
+        &.is-left {
             width: 20%;
             text-align: left;
 
-            a.to-orgsite{
+            a.to-orgsite {
                 display: block;
                 width: 100%;
                 height: 100%;
@@ -169,7 +165,7 @@ export default {
                 background-position: 0px 10px;
             }
         }
-        
+
         &.m-header-title {
             width: 60%;
             font-size: 16px;
@@ -182,22 +178,22 @@ export default {
             overflow: hidden;
         }
 
-        &.is-right{
+        &.is-right {
             width: 20%;
             text-align: right;
         }
-    }  
-    
+    }
+
     &.is-bg {
         background: @headerBg;
-        
+
         a {
             color: @headerDefaultColor;
         }
-        .is-right{
+        .is-right {
             color: @headerDefaultColor;
         }
-        .is-left{
+        .is-left {
             color: @headerDefaultColor;
         }
         .m-header-title {

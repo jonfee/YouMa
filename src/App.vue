@@ -5,6 +5,9 @@
     <router-view></router-view>
     <!--二维码-->
     <qr_code></qr_code>
+  
+    <!--登录弹窗-->
+    <LoginModal :show="showLoginModal" @hide="showLoginModal=false"></LoginModal>
   </div>
 </template>
 
@@ -15,13 +18,21 @@ import navbar from '@/components/global/navbar'
 //引入公众号二维码组件
 import qr_code from '@/components/global/qrcode'
 
+import LoginModal from './components/global/LoginModal'
+
 export default {
   name: 'app',
-  data(){
+  data() {
     return {
-      navTitle: ''
+      navTitle: '',
+      showLoginModal: false,
     }
   },
-  components:{ navbar, qr_code }
+  methods: {
+    showLogin() {
+      this.showLoginModal = true;
+    }
+  },
+  components: { navbar, qr_code, LoginModal }
 }
 </script>

@@ -97,6 +97,7 @@ export default {
     width: 100%;
     height: 30px;
     position: fixed;
+    z-index: 666;
     left: 0;
     text-align: center;
     .toast {

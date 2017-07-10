@@ -6,7 +6,6 @@
     
         <div class="form">
             <form>
-    
                 <div class="formitem">
                     <i class="icon"></i>
                     <input class="input" type="text" v-model="user.username" placeholder="请输入您的登录账号">
@@ -21,7 +20,7 @@
                     <input type="checkbox" checked="checked" value="1">
     
                     <span>我已阅读并同意
-                        <a href="javascript:;" @click="showAggree=true">《用户注册协议》</a>
+                        <a href="javascript:;" @click="showAgreement">《用户注册协议》</a>
                     </span>
                 </p>
     
@@ -33,8 +32,7 @@
             </form>
     
             <!--用户协议模态框-->
-            <div id="modal" v-show="showAggree" class="modal">
-                <span class="close" @click="showAggree=false">X</span>
+            <Modal class="modal" :show="showAggree" @hide="hideAggreement">
                 <div class="modal-title">
                     <h4>用户注册协议</h4>
                 </div>
@@ -49,10 +47,8 @@
                             <p>
                             </p>
                             <h4>二、服务内容</h4>
-                            2.1 优码商城的具体内容由本站根据实际情况提供。
-                            <br> 2.2 本站仅提供相关的网络服务，除此之外与相关网络服务有关的设备(如个人电脑、手机、及其他与接入互联网或移动网有关的装置)及所需的费用(如为接入互联网而支付的电话费及上网费、为使用移动网而支付的手机费)均应由用户自行负担。
-                            <p></p>
-                            <p>
+                            <p> 2.1 优码商城的具体内容由本站根据实际情况提供。
+                            <br>2.2 本站仅提供相关的网络服务，除此之外与相关网络服务有关的设备(如个人电脑、手机、及其他与接入互联网或移动网有关的装置)及所需的费用(如为接入互联网而支付的电话费及上网费、为使用移动网而支付的手机费)均应由用户自行负担。
                             </p>
                             <h4>三、用户帐号</h4>
                             3.1 经本站注册系统完成注册程序并通过身份认证的用户即成为正式用户，可以获得本站规定用户所应享有的一切权限；未经认证仅享有本站规定的部分会员权限。优码商城有权对会员的权限设计进行变更。
@@ -134,7 +130,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </Modal>
         </div>
     </div>
 </template>
@@ -142,8 +138,12 @@
 <script>
 import './../assets/sass/views/login.scss'
 import { storage as Storage } from './../utils/localStorage'
+import Modal from './global/Modal'
 
 export default {
+    components: {
+        Modal
+    },
     data() {
         return {
             user: {
@@ -180,6 +180,12 @@ export default {
                 // 跳转至登录
                 this.$router.push('login');
             }, 1000);
+        },
+        showAgreement() {
+            this.showAggree = true;
+        },
+        hideAggreement() {
+            this.showAggree = false;
         }
     }
 }

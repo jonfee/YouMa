@@ -19,7 +19,7 @@
 
         position: fixed;
         right: 20px;
-        bottom: 20px;
+        bottom: 35px;
         z-index: 99;
 
         background: rgba(255, 255, 255, 1);
