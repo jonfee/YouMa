@@ -1,7 +1,8 @@
 <template>
     <section v-if="!navinfo.hide" class="m-header is-bg">
         <span class="m-header-button is-left">
-            <a href="javascript:;" v-if="!navinfo.noback" @click="backOnClick">{{ navinfo.backtext }}</a>
+            <a v-if="!navinfo.noback" href="javascript:;" @click="backOnClick">{{ navinfo.backtext }}</a>
+            <a v-else href="http://www.youmalife.com" class="to-orgsite"></a>
         </span>
         <span class="m-header-button m-header-title" v-text="navinfo.title"></span>
         <span class="m-header-button is-right">
@@ -102,6 +103,11 @@ export default {
                     path: this.navinfo.user.link
                 });
             }
+        },
+
+        /**跳转到官网**/
+        goOrgSite: function() {
+
         }
     }
 }
@@ -139,6 +145,7 @@ export default {
     a {
         color: @headerDefaultColor;
         font-size: 14px;
+        cursor: pointer;
     }
 
     .m-header-button{
@@ -151,6 +158,16 @@ export default {
         &.is-left{
             width: 20%;
             text-align: left;
+
+            a.to-orgsite{
+                display: block;
+                width: 100%;
+                height: 100%;
+                background: url("/static/imgs/logo_nav.png");
+                background-size: auto 25px;
+                background-repeat: no-repeat;
+                background-position: 0px 10px;
+            }
         }
         
         &.m-header-title {
