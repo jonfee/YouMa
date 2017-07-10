@@ -1,11 +1,11 @@
 <template>
     <section v-if="!navinfo.hide" class="m-header is-bg">
         <span class="m-header-button is-left">
-            <a href="javascript:;" v-if="!navinfo.noback" @click="goBack">{{ navinfo.backtext }}</a>
+            <a href="javascript:;" v-if="!navinfo.noback" @click="backOnClick">{{ navinfo.backtext }}</a>
         </span>
         <span class="m-header-button m-header-title" v-text="navinfo.title"></span>
         <span class="m-header-button is-right">
-            <router-link v-show="navinfo.user.show" :to="navinfo.user.link">{{ navinfo.user.displayText }}</router-link>
+            <a v-show="navinfo.user.show" href="javascript:;" @click="userOnClick">{{ navinfo.user.displayText }}</a>
         </span>
     </section>
 </template>
@@ -76,7 +76,7 @@ export default {
             //链接
             var link = '/user/center';
 
-            if(disText == ''){
+            if(disText == '') {
                 if(this.$route.name == 'login'){
                     disText = '注册';
                     link = '/user/register';
@@ -88,9 +88,20 @@ export default {
             return { displayText: disText, link: link};
         },
 
-        /** 后退/返回**/
-        goBack: function(){
+        /** 后退/返回 按钮点击事件**/
+        backOnClick: function() {
             this.$router.go(-1);
+        },
+        
+        /**登录/注册 铵钮点击事件**/
+        userOnClick: function() {
+            if(this.navinfo.user.displayText === '登录'){
+                this.$toast.error('登录弹出框未实现！');
+            }else{
+                this.$router.push({
+                    path: this.navinfo.user.link
+                });
+            }
         }
     }
 }
