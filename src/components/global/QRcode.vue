@@ -12,6 +12,7 @@
         width: -ms-calc(100% * 0.2);
         width: calc(100% * 0.2);
         min-width: 100px;
+        max-width: 200px;
         height: auto;
 
         padding: 5px;
