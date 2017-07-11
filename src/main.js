@@ -39,20 +39,21 @@ router.beforeEach((to, from, next) => {
     var isLogin = security.isLogin();
 
 
-    //如果需要登录后才能操作
+    // 1、如果需要登录后才能操作，则弹出登录框
     if (mustLogin && !isLogin) {
-        vm.$toast.error('请先登录');
         vm.$children[0].showLogin();
-        return;
     }
-
-    //如果已登录且指向登录页，则跳转到用户中心
-    if (isLogin && to.name == 'login') {
-        return next({ name: 'user_center' });
-    } else if (!isLogin && to.name == 'login') {
-        vm.$children[0].showLogin();
-        return;
+    // 2、如果指向“登录”页，且来源页不为“注册”页时：
+    //  2.1  如果：已登录时，路由转到用户中心
+    //  2.2  否则：未登录时，弹出登录框
+    else if(to.name == 'login' && from.name != 'register'){
+        if(isLogin){
+            return next({ name: 'user_center' });
+        }else{
+            vm.$children[0].showLogin();
+        }
     }
-
-    next();
+    else{
+        next();
+    }
 });

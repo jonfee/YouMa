@@ -6,7 +6,7 @@
         </span>
         <span class="m-header-button m-header-title" v-text="navinfo.title"></span>
         <span class="m-header-button is-right">
-            <a v-show="navinfo.user.show" href="javascript:;" @click="userOnClick">{{ navinfo.user.displayText }}</a>
+            <router-link v-show="navinfo.user.show" href="javascript:;" :to="navinfo.user.link">{{ navinfo.user.displayText }}</router-link>
         </span>
     </section>
 </template>
@@ -92,13 +92,6 @@ export default {
         /** 后退/返回 按钮点击事件**/
         backOnClick: function () {
             this.$router.go(-1);
-        },
-
-        /**登录/注册 铵钮点击事件**/
-        userOnClick: function () {
-            this.$router.push({
-                path: this.navinfo.user.link
-            });
         }
     }
 }

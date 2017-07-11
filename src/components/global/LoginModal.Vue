@@ -27,13 +27,20 @@
 .loginmodal {
     border: solid 1px #ccc;
     position: fixed;
-    width: 80%;
+    width: -webkit-calc(100% - 50px);
+    width: -moz-calc(100% - 50px);
+    width: -ms-calc(100% - 50px);
+    width: calc(100% - 50px);
+    max-width: 650px;
     height: 300px;
     padding: 10px;
-    left: 10%;
-    top: 50%;
+    top: -webkit-calc(50% - 150px);
+    top: -moz-calc(50% - 150px);
+    top: -ms-calc(50% - 150px);
+    top: calc(50% - 150px);
+    left: 25px;
+    right: 25px;
     margin: 0 auto;
-    margin-top: -150px;
     background-color: rgba(255, 255, 255, 1);
     z-index: 10;
     -webkit-animation-name: zoom;
@@ -54,6 +61,7 @@
         color: white;
         background-color: #67C36F;
         background-attachment: fixed;
+        cursor: pointer;
     }
     .login {
         width: 100%;
@@ -118,7 +126,7 @@
     }
     @keyframes zoom {
         from {
-            transform: scale(0.1)
+            transform: scale(0)
         }
         to {
             transform: scale(1)
