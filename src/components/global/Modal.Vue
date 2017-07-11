@@ -33,8 +33,8 @@ export default {
     max-width: 100% !important;
     text-align: center;
     border: 0px !important;
-    background: rgba(0, 0, 0, 0.1) !important; // 导航高度
-    top: 44px;
+    background: rgba(0, 0, 0, 0) !important;
+    top: 44px; // 导航高度
     padding: 10% 0;
     left: 0;
     -webkit-animation-name: zoom;
