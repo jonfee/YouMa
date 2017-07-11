@@ -98,7 +98,6 @@ export default {
     height: 30px;
     position: fixed;
     z-index: 666;
-    left: 0;
     text-align: center;
     .toast {
         height: 36px;
@@ -107,7 +106,7 @@ export default {
         display: inline-block;
         background: white;
         border-radius: 6px;
-        box-shadow:2px 2px 3px #cccccc,-2px -2px 3px #cccccc;
+        box-shadow: 2px 2px 3px #cccccc, -2px -2px 3px #cccccc;
         .icon {
             width: 20px;
             height: 20px;

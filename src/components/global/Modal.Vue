@@ -1,7 +1,9 @@
 <template>
-    <div id="modal" v-show="show" class="modal">
-        <span class="close" @click="close">×</span>
-        <slot></slot>
+    <div v-show="show" class="modalcontainer">
+        <div id="modal" class="modal">
+            <span class="close" @click="close">×</span>
+            <slot></slot>
+        </div>
     </div>
 </template>
 
@@ -24,21 +26,32 @@ export default {
 
 <style lang="scss">
 // 模态框
-.modal {
-    border: solid 1px #ccc;
-    position: fixed;
-    width: 80%;
-    height: 75%;
-    padding: 10px;
-    left: 10%;
-    top: 13%;
-    margin: 0 auto;
-    background-color: rgba(255, 255, 255, 0.9);
-    z-index: 5;
+.modalcontainer {
+    width: 100% !important;
+    height: 100% !important;
+    position: fixed !important;
+    max-width: 100% !important;
+    text-align: center;
+    border: 0px !important;
+    background: rgba(0, 0, 0, 0.1) !important; // 导航高度
+    top: 44px;
+    padding: 10% 0;
+    left: 0;
     -webkit-animation-name: zoom;
     -webkit-animation-duration: 0.6s;
     animation-name: zoom;
     animation-duration: 0.6s;
+    z-index: 666;
+}
+
+.modal {
+    display: inline-block;
+    border: solid 1px #ccc;
+    position: relative;
+    width: 80%;
+    height: 80%;
+    background-color: rgba(255, 255, 255, 0.9);
+
     .close {
         position: absolute;
         display: block;
