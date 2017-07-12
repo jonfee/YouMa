@@ -99,19 +99,21 @@ export default {
 
 <style scoped lang="less">
 //APP默认颜色
-@defaultColor: rgba(255, 255, 255, 0.8);
+@defaultColor: rgba(6,112,185,0.8);//rgba(255, 255, 255, 0.8);rgba(144, 196, 47, 0.8);
 //导航底色
 @headerBg: @defaultColor;
 //导航默认前景色
-@headerDefaultColor: rgba(50, 50, 50, 1);
+@headerDefaultColor: rgba(153, 204, 255, 1); // rgba(50, 50, 50, 1);
+//标题颜色
+@headerTitleColor: rgba(0, 51, 102, 1);
 
 .m-header {
     width: 100%;
-    height: 44px;
+    height: 80px;
     padding: 0 10px;
     margin: 0px auto;
     background: @headerBg;
-    color: @headerDefaultColor;
+
     border-bottom: 1px solid #ccc;
 
     position: fixed;
@@ -128,14 +130,14 @@ export default {
 
     a {
         color: @headerDefaultColor;
-        font-size: 14px;
+        font-size: 16px;
         cursor: pointer;
     }
 
     .m-header-button {
         display: inline-block;
-        height: 44px;
-        line-height: 44px;
+        height: 80px;
+        line-height: 80px;
         margin: 0px;
         padding: 0px;
 
@@ -147,16 +149,16 @@ export default {
                 display: block;
                 width: 100%;
                 height: 100%;
-                background: url("/static/imgs/logo_nav.png");
-                background-size: auto 20px;
+                background: url("/static/imgs/logo_name_white.png");
+                background-size: auto 50px;
                 background-repeat: no-repeat;
-                background-position: 0px 12px;
+                background-position: 0px 15px;
             }
         }
 
         &.m-header-title {
             width: 60%;
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -179,13 +181,17 @@ export default {
             color: @headerDefaultColor;
         }
         .is-right {
-            color: @headerDefaultColor;
+            color: @headerTitleColor;
+
+            a{
+                color: @headerTitleColor;
+            }
         }
         .is-left {
             color: @headerDefaultColor;
         }
         .m-header-title {
-            color: @headerDefaultColor;
+            color: @headerTitleColor;
         }
     }
     &.is-fixed {
